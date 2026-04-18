@@ -15,10 +15,16 @@
   <link rel="stylesheet" href="style.css">
   <style>
     @media (max-width: 900px) {
-      .nav__hamburger { display: flex !important; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; z-index: 1001; background: none; border: none; cursor: pointer; }
+      /* Always show a solid nav background on mobile */
+      .nav { background: rgba(13,13,26,0.97) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.5) !important; }
+      .nav__container { height: 64px !important; min-height: 64px !important; display: flex !important; align-items: center !important; padding: 0 1.25rem !important; }
+      .nav__hamburger { display: flex !important; flex-direction: column !important; gap: 5px !important; padding: 8px !important; margin-left: auto !important; z-index: 1001 !important; background: none !important; border: none !important; cursor: pointer !important; }
+      .nav__hamburger span { display: block !important; width: 24px !important; height: 2px !important; background: #ffffff !important; border-radius: 2px !important; }
       .nav__cta { display: none !important; }
       .nav__links { position: fixed !important; inset: 0 !important; background: rgba(13,13,26,0.98) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; transform: translateX(100%) !important; transition: transform 0.4s ease !important; z-index: 999 !important; }
       .nav__links--open { transform: translateX(0) !important; }
+      /* Hero: less space above logo on mobile */
+      .hero__content { padding-top: 1.5rem !important; padding-bottom: 2.5rem !important; }
     }
   </style>
 </head>
@@ -54,7 +60,7 @@
     <canvas class="hero__particles" id="particleCanvas" aria-hidden="true"></canvas>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content"
-      style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:960px; padding:4rem 2rem 4rem; position:relative; z-index:2;">
+      style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:960px; padding:2rem 2rem 4rem; position:relative; z-index:2;">
       <img
         src="logo.png"
         alt="Starlite Ballroom"
