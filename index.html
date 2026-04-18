@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio in Silicon Valley. Waltz, Tango, Salsa, Swing & more. Free trial lesson. 5178 Moorpark Ave, Suite 60.">
+  <meta property="og:title" content="Starlite Ballroom | San Jose Dance Studio">
+  <meta property="og:description" content="World-class ballroom dance instruction in the heart of Silicon Valley. All levels welcome. Book your free first lesson today.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  <title>Starlite Ballroom | San Jose, CA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#0d0d1a; margin:0;">
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="nav" id="navbar" aria-label="Main navigation">
+    <div class="nav__container">
+      <ul class="nav__links" id="navLinks" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#styles">Dance Styles</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#instructors">Teachers</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-primary nav__cta">Book Free Lesson</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Welcome to Starlite Ballroom"
+    style="background:radial-gradient(ellipse at 35% 45%,#1e2050 0%,#0d0d1a 65%); min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+    <canvas class="hero__particles" id="particleCanvas" aria-hidden="true"></canvas>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content"
+      style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:960px; padding:100px 2rem 7rem; position:relative; z-index:2;">
+      <img
+        src="logo.png"
+        alt="Starlite Ballroom"
+        class="hero__logo"
+        loading="eager"
+        fetchpriority="high"
+        style="display:block; width:50vw; max-width:520px; min-width:220px; height:auto; margin-bottom:2rem;"
+      >
+      <p class="hero__tagline">San Jose's Premier Ballroom Dance Studio</p>
+      <p class="hero__sub">
+        Waltz &middot; Tango &middot; Salsa &middot; Swing &middot; Cha Cha &middot; Rumba &middot; and more<br>
+        <em>Where every dancer finds their rhythm</em>
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn-primary">Book Your Free Lesson</a>
+        <a href="#programs" class="btn-secondary">Explore Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <span class="eyebrow" style="text-align:left;">Our Story</span>
+          <h2 class="section-title">San Jose's <span>Premier</span><br>Ballroom Studio</h2>
+          <div class="section-divider" style="margin-left:0; margin-right:auto;"></div>
+          <p class="lead">
+            Nestled in the heart of Silicon Valley, Starlite Ballroom is where world-class coaching meets a warm, welcoming community. Whether you're stepping onto the floor for the very first time or training for your next competition — you'll find a home here.
+          </p>
+          <p>
+            Our award-winning instructors bring the passion, precision, and playfulness that makes every lesson feel like a celebration. We believe dancing isn't just a skill — it's a way of expressing who you are. Come as you are. Leave transformed.
+          </p>
+          <a href="#programs" class="btn-secondary" style="margin-top: 0.5rem;">Explore Our Programs</a>
+        </div>
+        <div class="about__visual reveal">
+          <div class="about__frame">
+            <blockquote class="about__quote">
+              <p>&ldquo;Dance is the hidden language of the soul.&rdquo;</p>
+              <cite>&mdash; Martha Graham</cite>
+            </blockquote>
+          </div>
+          <div class="about__stats">
+            <div class="stat">
+              <span class="stat__number">9+</span>
+              <span class="stat__label">Dance Styles</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">All</span>
+              <span class="stat__label">Skill Levels</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">Free</span>
+              <span class="stat__label">Trial Lesson</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EVENTS & POSTERS
+  ══════════════════════════════════════════ -->
+  <section class="section events" id="events">
+    <div class="container">
+      <span class="eyebrow">What's On</span>
+      <h2 class="section-title">Upcoming <span>Events</span></h2>
+      <div class="section-divider"></div>
+
+      <div class="events__featured reveal">
+        <div class="events__calendar-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_e1ad8415f0ff41a5a58956d5993cbfbe~mv2.jpg/v1/fill/w_941,h_727,al_c,q_85,enc_avif,quality_auto/may%20calendar.jpg"
+            alt="May 2026 Class Calendar"
+            loading="lazy"
+            class="events__calendar-img"
+          >
+        </div>
+      </div>
+
+      <div class="events__posters reveal-stagger">
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_16868f4a32374f269ae76d5175946fe6~mv2.jpg/v1/fill/w_600,h_777,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Neon%20Nights%20Flyer%20April.jpg"
+            alt="Neon Nights Event Flyer"
+            loading="lazy"
+          >
+        </div>
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_8fb472a9eb7849c3b77207ac3f8c84df~mv2.jpeg/v1/fill/w_480,h_625,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Unknown-1.jpeg"
+            alt="Starlite Ballroom Event"
+            loading="lazy"
+          >
+        </div>
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_35bc25c411f14f189f0a8d9d58feb210~mv2.jpg/v1/fill/w_600,h_774,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4428.jpg"
+            alt="Starlite Ballroom Event"
+            loading="lazy"
+          >
+        </div>
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_1c51048aa9c94448849a1f3feabd8f89~mv2.jpg/v1/fill/w_1072,h_793,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4736.jpg"
+            alt="Dance Showcase"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <div class="events__cta reveal">
+        <p>Next Dance Showcase: <strong style="color:var(--color-gold);">Sunday, May 31st, 2026</strong></p>
+        <a href="#contact" class="btn-primary" style="margin-top:1.5rem;">Get Tickets &amp; Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROGRAMS
+  ══════════════════════════════════════════ -->
+  <section class="section programs" id="programs">
+    <div class="container">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="section-title">Our <span>Programs</span></h2>
+      <div class="section-divider"></div>
+      <div class="programs__grid reveal-stagger">
+
+        <article class="card program-card">
+          <div class="program-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="10" r="4"/>
+              <circle cx="32" cy="10" r="4"/>
+              <path d="M10 28c0-6 4-10 10-10s8 4 8 4-4 2-4 8v8H12v-8l-2-2z"/>
+              <path d="M38 28c0-6-4-10-10-10"/>
+              <path d="M24 22c2 2 4 4 4 6v10h12v-8l2-2"/>
+            </svg>
+          </div>
+          <h3 class="program-card__title">Social Dancing</h3>
+          <p class="program-card__desc">
+            Join our vibrant community on the dance floor. Drop-in classes, practice nights, and social dance events in a warm, judgment-free space.
+          </p>
+          <a href="#contact" class="program-card__link">Learn More &rarr;</a>
+        </article>
+
+        <article class="card program-card">
+          <div class="program-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 4l4 12h13l-10.5 7.6 4 12L24 28l-10.5 7.6 4-12L7 16h13z"/>
+            </svg>
+          </div>
+          <h3 class="program-card__title">Competitive</h3>
+          <p class="program-card__desc">
+            Train with coaches who have competed at the highest international levels. Build technique, artistry, and the competitive edge to shine on stage.
+          </p>
+          <a href="#contact" class="program-card__link">Learn More &rarr;</a>
+        </article>
+
+        <article class="card program-card">
+          <div class="program-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="6"/>
+              <circle cx="32" cy="16" r="6"/>
+              <path d="M10 32c0 0 4-6 14-6s14 6 14 6"/>
+              <path d="M20 38c2-2 6-2 8 0"/>
+              <path d="M8 44c4-4 10-6 16-6s12 2 16 6"/>
+            </svg>
+          </div>
+          <h3 class="program-card__title">Wedding Dance</h3>
+          <p class="program-card__desc">
+            Make your first dance unforgettable. Our specialists craft beautiful choreography tailored to your song and your love story — stress-free.
+          </p>
+          <a href="#contact" class="program-card__link">Learn More &rarr;</a>
+        </article>
+
+        <article class="card program-card">
+          <div class="program-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6l2.5 7.7H34l-6.5 4.7 2.5 7.7L24 21.4l-6 4.7 2.5-7.7L14 13.7h7.5z"/>
+              <path d="M12 36c0-6 5-10 12-10s12 4 12 10"/>
+              <path d="M8 44h32"/>
+            </svg>
+          </div>
+          <h3 class="program-card__title">Kids &amp; Teens</h3>
+          <p class="program-card__desc">
+            Build confidence, coordination, and a love for movement. Our age-appropriate weekend classes give young dancers a foundation to last a lifetime.
+          </p>
+          <a href="#contact" class="program-card__link">Learn More &rarr;</a>
+        </article>
+
+        <article class="card program-card program-card--featured">
+          <div class="program-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="12" r="6"/>
+              <path d="M14 40c0-8 4.5-14 10-14s10 6 10 14"/>
+              <path d="M6 40c0-6 3-10 8-10"/>
+              <path d="M42 40c0-6-3-10-8-10"/>
+              <circle cx="10" cy="18" r="4"/>
+              <circle cx="38" cy="18" r="4"/>
+            </svg>
+          </div>
+          <h3 class="program-card__title">Private Lessons</h3>
+          <p class="program-card__desc">
+            Accelerate your progress with one-on-one instruction entirely tailored to your goals, schedule, and style. Personal attention. Real results. Your first lesson is free.
+          </p>
+          <a href="#contact" class="btn-primary" style="margin-top:0.5rem;">Book Free Lesson</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DANCE STYLES
+  ══════════════════════════════════════════ -->
+  <section class="section styles" id="styles">
+    <div class="container">
+      <span class="eyebrow">The Dances</span>
+      <h2 class="section-title">Dance <span>Styles</span></h2>
+      <div class="section-divider"></div>
+      <div class="styles__grid reveal-stagger">
+
+        <div class="style-card" data-dance="waltz">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Graceful and sweeping — the dance of elegance. Rise and fall through flowing 3/4 time.</p>
+            <p class="style-card__origin">Vienna, Austria</p>
+            <h3 class="style-card__name">Waltz</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="tango">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Dramatic, sharp, and electric — a conversation between two souls expressed in movement.</p>
+            <p class="style-card__origin">Buenos Aires, Argentina</p>
+            <h3 class="style-card__name">Tango</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="chacha">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Playful, flirtatious, and full of energy — the cha cha brings joy to every beat.</p>
+            <p class="style-card__origin">Cuba</p>
+            <h3 class="style-card__name">Cha Cha</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="rumba">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Sensual and expressive, rumba is the dance of love — slow, deliberate, and magnetic.</p>
+            <p class="style-card__origin">Cuba</p>
+            <h3 class="style-card__name">Rumba</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="salsa">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Hot, rhythmic, and social — salsa is the life of the party, built on connection and fire.</p>
+            <p class="style-card__origin">Caribbean / New York</p>
+            <h3 class="style-card__name">Salsa</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="swing">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Joyful, bouncy, and athletic — swing dancing brings the spirit of the jazz age to life.</p>
+            <p class="style-card__origin">United States</p>
+            <h3 class="style-card__name">Swing</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="hustle">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Smooth, turning, and slick — hustle is disco-era elegance with modern groove.</p>
+            <p class="style-card__origin">United States</p>
+            <h3 class="style-card__name">Hustle</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="milonga">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Quick and rhythmic, milonga is tango's lively cousin — earthy, close, and deeply felt.</p>
+            <p class="style-card__origin">Rio de la Plata region</p>
+            <h3 class="style-card__name">Milonga</h3>
+          </div>
+        </div>
+
+        <div class="style-card" data-dance="hiphop">
+          <div class="style-card__inner">
+            <div class="style-card__bg" aria-hidden="true"></div>
+            <p class="style-card__desc">Raw, expressive, and free — hip hop is a celebration of individuality and street culture.</p>
+            <p class="style-card__origin">New York City</p>
+            <h3 class="style-card__name">Hip Hop</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WHY CHOOSE US
+  ══════════════════════════════════════════ -->
+  <section class="section why-us" id="why-us">
+    <div class="container">
+      <span class="eyebrow">Our Promise</span>
+      <h2 class="section-title">Why <span>Starlite</span>?</h2>
+      <div class="section-divider"></div>
+      <div class="why-us__grid reveal-stagger">
+
+        <div class="usp-card">
+          <div class="usp-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 4l4.5 9.1 10.1 1.5-7.3 7.1 1.7 10-9-4.7-9 4.7 1.7-10-7.3-7.1 10.1-1.5z"/>
+            </svg>
+          </div>
+          <h3 class="usp-card__title">World-Class Coaches</h3>
+          <p class="usp-card__desc">Our instructors have competed and trained at the highest levels of international ballroom, bringing elite expertise and genuine passion to every session.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 38s-16-10-16-20a8 8 0 0116 0 8 8 0 0116 0c0 10-16 20-16 20z"/>
+            </svg>
+          </div>
+          <h3 class="usp-card__title">Welcoming Atmosphere</h3>
+          <p class="usp-card__desc">From nervous first-timers to seasoned competitors, everyone belongs here. Our studio is a judgment-free space built on encouragement, laughter, and joy.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="14" cy="12" r="5"/>
+              <circle cx="30" cy="12" r="5"/>
+              <path d="M4 36c0-8 4.5-12 10-12"/>
+              <path d="M40 36c0-8-4.5-12-10-12"/>
+              <path d="M14 24c0 0 4-2 8-2s8 2 8 2c2 2 4 6 4 12H10c0-6 2-10 4-12z"/>
+            </svg>
+          </div>
+          <h3 class="usp-card__title">All Levels Welcome</h3>
+          <p class="usp-card__desc">No experience? No problem. Our structured programs grow with you — from your very first step all the way to competition-ready routines and performance.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 4C13.2 4 6 11.2 6 20c0 7 4.5 13 11 15.5V38h10v-2.5C33.5 33 38 27 38 20c0-8.8-7.2-16-16-16z"/>
+              <circle cx="22" cy="20" r="3"/>
+              <path d="M22 4v4M22 36v4M4 20h4M38 20h2"/>
+            </svg>
+          </div>
+          <h3 class="usp-card__title">Silicon Valley's Studio</h3>
+          <p class="usp-card__desc">Conveniently located in West San Jose, minutes from Cupertino and Sunnyvale — a world-class dance experience at the heart of the Bay Area tech community.</p>
+        </div>
+
+      </div>
+      <div class="why-us__cta reveal">
+        <p class="why-us__cta-text">Ready to take your first step?</p>
+        <a href="#contact" class="btn-primary">Claim Your Free Lesson</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       INSTRUCTORS
+  ══════════════════════════════════════════ -->
+  <section class="section instructors" id="instructors">
+    <div class="container">
+      <span class="eyebrow">Meet the Team</span>
+      <h2 class="section-title">Our <span>Teachers</span></h2>
+      <div class="section-divider"></div>
+      <div class="instructors__grid reveal-stagger">
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg" alt="Gaetano" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Gaetano</h3>
+          <p class="instructor-card__specialty">International Standard</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg" alt="Emanuela" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Emanuela</h3>
+          <p class="instructor-card__specialty">International Standard</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_8f56dc24770440ce939ad01c48e5ba90~mv2.jpeg" alt="Stacie" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Stacie</h3>
+          <p class="instructor-card__specialty">Social Dance</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_b3da54e72bd641e9bb387c7b8c3533cd~mv2.jpeg" alt="Tim Michaels" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Tim Michaels</h3>
+          <p class="instructor-card__specialty">Wedding &amp; Social Dance</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_b3832475cc1343f4b8b47b799089b9ae~mv2.jpg" alt="Austin" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Austin</h3>
+          <p class="instructor-card__specialty">West Coast Swing</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_2b1607a662fc405cb5bffaa027356188~mv2.jpg" alt="Andy & Virginia" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Andy &amp; Virginia</h3>
+          <p class="instructor-card__specialty">Social Dance · Sunday Hosts</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_e3f18b63ad144ca4a3356fc5c6ba1d71~mv2.jpeg" alt="Barry & Mei" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Barry &amp; Mei</h3>
+          <p class="instructor-card__specialty">Social Dance · Friday Hosts</p>
+        </div>
+
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
+          </div>
+          <h3 class="instructor-card__name">Ken</h3>
+          <p class="instructor-card__specialty">Social Dance · Groovy Tuesdays &amp; Saturday Ballroom</p>
+        </div>
+
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
+          </div>
+          <h3 class="instructor-card__name">Tommy</h3>
+          <p class="instructor-card__specialty">Hip Hop · Jazz · Wedding &amp; Social Choreography</p>
+        </div>
+
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
+          </div>
+          <h3 class="instructor-card__name">Julius</h3>
+          <p class="instructor-card__specialty">International Standard</p>
+        </div>
+
+      </div>
+      <p class="instructors__note reveal">"Each of our wonderful instructors has a passion to teach."</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════════ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <span class="eyebrow">What Our Students Say</span>
+      <h2 class="section-title">Student <span>Stories</span></h2>
+      <div class="section-divider"></div>
+      <div class="testimonials__wrapper">
+        <div class="testimonials__grid reveal-stagger" id="testimonialsGrid">
+
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text">
+              &ldquo;The instructors here are world-class yet incredibly approachable. I came in with two left feet and left feeling like I could actually dance. The community is genuinely warm and supportive — I keep coming back.&rdquo;
+            </p>
+            <footer class="testimonial-card__footer">
+              <span class="testimonial-card__author">&mdash; Maria T.</span>
+              <span class="testimonial-card__source">via Yelp</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text">
+              &ldquo;My fianc&eacute; and I took wedding dance lessons here and it was the best decision we made. Our first dance brought the whole room to tears. Tommy is an incredible teacher — fun, patient, and truly invested.&rdquo;
+            </p>
+            <footer class="testimonial-card__footer">
+              <span class="testimonial-card__author">&mdash; David &amp; Sarah K.</span>
+              <span class="testimonial-card__source">via Yelp</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text">
+              &ldquo;I've been taking group classes every week for over a year. The energy, the music, the people — it's become the highlight of my week. Dimitriy's waltz class in particular is absolutely spectacular.&rdquo;
+            </p>
+            <footer class="testimonial-card__footer">
+              <span class="testimonial-card__author">&mdash; Jennifer L.</span>
+              <span class="testimonial-card__source">via Yelp</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text">
+              &ldquo;Started competitive ballroom dancing here at 45 with absolutely zero experience. The coaches believed in me when I didn't believe in myself. Won my first trophy last spring. This place changes lives.&rdquo;
+            </p>
+            <footer class="testimonial-card__footer">
+              <span class="testimonial-card__author">&mdash; Robert M.</span>
+              <span class="testimonial-card__source">via Yelp</span>
+            </footer>
+          </blockquote>
+
+        </div>
+        <div class="testimonials__controls" aria-label="Testimonial carousel controls">
+          <button class="testimonials__prev" id="testimPrev" aria-label="Previous testimonial">&#8249;</button>
+          <div class="testimonials__dots" id="testimDots" role="tablist"></div>
+          <button class="testimonials__next" id="testimNext" aria-label="Next testimonial">&#8250;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SCHEDULE
+  ══════════════════════════════════════════ -->
+  <section class="section schedule" id="schedule">
+    <div class="container">
+      <span class="eyebrow">Plan Your Visit</span>
+      <h2 class="section-title">Hours &amp; <span>Schedule</span></h2>
+      <div class="section-divider"></div>
+      <div class="schedule__grid reveal">
+
+        <div class="schedule__hours">
+          <h3 class="schedule__hours-title">Studio Hours</h3>
+          <table class="hours-table" aria-label="Studio hours of operation">
+            <tbody>
+              <tr>
+                <th scope="row">Monday &ndash; Thursday</th>
+                <td>1:00 PM &ndash; 10:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Friday</th>
+                <td>1:00 PM &ndash; 1:00 AM</td>
+              </tr>
+              <tr class="tr--highlight">
+                <th scope="row">Saturday</th>
+                <td>10:00 AM &ndash; 4:00 PM<br><span class="hours-gap">Evening: </span>7:00 PM &ndash; Midnight</td>
+              </tr>
+              <tr>
+                <th scope="row">Sunday</th>
+                <td>7:00 PM &ndash; 11:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="schedule__note">
+            Hours may vary for holidays and special events. Follow us on
+            <a href="https://www.instagram.com/thestarliteballroom" target="_blank" rel="noopener noreferrer" class="link-gold">Instagram</a>
+            for real-time updates.
+          </p>
+        </div>
+
+        <div class="schedule__right">
+          <div class="card calendar-cta-card">
+            <div class="calendar-cta-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="12" width="44" height="38" rx="4"/>
+                <path d="M6 22h44"/>
+                <path d="M18 6v12M38 6v12"/>
+                <path d="M16 32h4M26 32h4M36 32h4M16 40h4M26 40h4"/>
+              </svg>
+            </div>
+            <h3>Full Class Schedule</h3>
+            <p>View our complete group class schedule, social dance nights, and upcoming special events on the official calendar.</p>
+            <a href="https://www.thestarliteballroom.com" class="btn-primary" target="_blank" rel="noopener noreferrer">View Full Calendar</a>
+          </div>
+          <div class="schedule__social-note">
+            <p>Follow us for real-time updates</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/thestarliteballroom" target="_blank" rel="noopener noreferrer" aria-label="Starlite Ballroom on Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5"/>
+                  <circle cx="12" cy="12" r="4.5"/>
+                  <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/TheStarliteBallroom" target="_blank" rel="noopener noreferrer" aria-label="Starlite Ballroom on Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="section-title">Visit <span>Us</span></h2>
+      <div class="section-divider"></div>
+      <div class="contact__grid">
+
+        <div class="contact__info reveal">
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 4C13.4 4 8 9.4 8 16c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12z"/>
+                <circle cx="20" cy="16" r="3.5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="contact__detail-label">Address</h3>
+              <address>
+                5178 Moorpark Ave, Suite 60<br>
+                San Jose, CA 95129
+              </address>
+            </div>
+          </div>
+
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 8h6l3 7-3.5 3.5A22 22 0 0021.5 25.5L25 22l7 3v6a2 2 0 01-2 2C11 33 7 9 8 8z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="contact__detail-label">Phone</h3>
+              <a href="tel:4082527000" class="link-gold" style="font-size:1rem;">408-252-7000</a>
+            </div>
+          </div>
+
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="8" width="32" height="24" rx="3"/>
+                <path d="M4 12l16 11 16-11"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="contact__detail-label">Email</h3>
+              <a href="mailto:thestarliteballroom@gmail.com" class="link-gold" style="font-size:0.875rem; word-break:break-all;">thestarliteballroom@gmail.com</a>
+            </div>
+          </div>
+
+          <form
+            class="contact__form"
+            id="contactForm"
+            action="mailto:thestarliteballroom@gmail.com"
+            method="POST"
+            enctype="text/plain"
+            novalidate
+          >
+            <h3 class="contact__form-title">Book Your Free Lesson</h3>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="Your first name">
+                <span class="form-field__error" aria-live="polite" role="alert"></span>
+              </div>
+              <div class="form-field">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Your last name">
+                <span class="form-field__error" aria-live="polite" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com">
+              <span class="form-field__error" aria-live="polite" role="alert"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone <span style="font-weight:300; text-transform:none; letter-spacing:0;">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(408) 555-1234">
+            </div>
+
+            <div class="form-field">
+              <label for="interest">I'm interested in&hellip;</label>
+              <select id="interest" name="interest">
+                <option value="">Select a program</option>
+                <option value="private">Private Lessons</option>
+                <option value="group">Group Classes</option>
+                <option value="social">Social Dancing</option>
+                <option value="wedding">Wedding Dance</option>
+                <option value="competitive">Competitive Training</option>
+                <option value="kids">Kids &amp; Teens</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message <span style="font-weight:300; text-transform:none; letter-spacing:0;">(optional)</span></label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us a little about yourself and your dance goals…"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Send Message</button>
+            <p class="form-note">
+              Or call us directly: <a href="tel:4082527000" class="link-gold">408-252-7000</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="contact__map reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4664609498474!2d-122.00574!3d37.32032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e3b05c0741%3A0x0!2s5178+Moorpark+Ave+Suite+60%2C+San+Jose%2C+CA+95129!5e0!3m2!1sen!2sus!4v1713400000000"
+            width="100%"
+            height="500"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Starlite Ballroom location — 5178 Moorpark Ave, Suite 60, San Jose, CA"
+            aria-label="Google Map showing Starlite Ballroom location"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer__main">
+      <div class="container footer__grid">
+
+        <div class="footer__brand">
+          <img src="logo.png" alt="Starlite Ballroom" class="footer__logo" width="200" height="75" loading="lazy">
+          <p class="footer__tagline">Bringing the joy of ballroom dance to Silicon Valley — one step at a time.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/thestarliteballroom" target="_blank" rel="noopener noreferrer" aria-label="Starlite Ballroom on Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4.5"/>
+                <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/TheStarliteBallroom" target="_blank" rel="noopener noreferrer" aria-label="Starlite Ballroom on Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h4 class="footer__nav-title">Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#styles">Dance Styles</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__contact-info">
+          <h4 class="footer__nav-title">Find Us</h4>
+          <address>
+            5178 Moorpark Ave, Suite 60<br>
+            San Jose, CA 95129
+          </address>
+          <a href="tel:4082527000">408-252-7000</a>
+          <a href="mailto:thestarliteballroom@gmail.com">thestarliteballroom@gmail.com</a>
+        </div>
+
+        <div class="footer__cta-block">
+          <h4 class="footer__nav-title">Start Dancing</h4>
+          <p>Your first lesson is completely free. No experience needed. Just show up.</p>
+          <a href="#contact" class="btn-primary">Book Free Lesson</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copyright">
+          &copy; <span id="currentYear"></span> The Starlite Ballroom. All rights reserved.<br>
+          5178 Moorpark Ave, Suite 60 &middot; San Jose, CA 95129 &middot; <a href="tel:4082527000" class="link-gold">408-252-7000</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
