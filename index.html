@@ -13,6 +13,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    @media (max-width: 900px) {
+      .nav__hamburger { display: flex !important; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; z-index: 1001; background: none; border: none; cursor: pointer; }
+      .nav__cta { display: none !important; }
+      .nav__links { position: fixed !important; inset: 0 !important; background: rgba(13,13,26,0.98) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; transform: translateX(100%) !important; transition: transform 0.4s ease !important; z-index: 999 !important; }
+      .nav__links--open { transform: translateX(0) !important; }
+    }
+  </style>
 </head>
 <body style="background:#0d0d1a; margin:0;">
 
@@ -46,7 +54,7 @@
     <canvas class="hero__particles" id="particleCanvas" aria-hidden="true"></canvas>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content"
-      style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:960px; padding:100px 2rem 7rem; position:relative; z-index:2;">
+      style="display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:960px; padding:4rem 2rem 4rem; position:relative; z-index:2;">
       <img
         src="logo.png"
         alt="Starlite Ballroom"
