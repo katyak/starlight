@@ -16,12 +16,12 @@
   <style>
     @media (max-width: 900px) {
       /* Always show a solid nav background on mobile */
-      .nav { background: rgba(13,13,26,0.97) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.5) !important; }
+      .nav { background: rgba(13,13,26,0.97) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: 0 2px 20px rgba(0,0,0,0.5) !important; }
       .nav__container { height: 64px !important; min-height: 64px !important; display: flex !important; align-items: center !important; padding: 0 1.25rem !important; }
       .nav__hamburger { display: flex !important; flex-direction: column !important; gap: 5px !important; padding: 8px !important; margin-left: auto !important; z-index: 1001 !important; background: none !important; border: none !important; cursor: pointer !important; }
       .nav__hamburger span { display: block !important; width: 24px !important; height: 2px !important; background: #ffffff !important; border-radius: 2px !important; }
       .nav__cta { display: none !important; }
-      .nav__links { position: fixed !important; inset: 0 !important; background: rgba(13,13,26,0.98) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; transform: translateX(100%) !important; transition: transform 0.4s ease !important; z-index: 999 !important; }
+      .nav__links { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; background: rgba(13,13,26,0.98) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; transform: translateX(100%) !important; transition: transform 0.4s ease !important; z-index: 999 !important; overflow-y: auto !important; }
       .nav__links--open { transform: translateX(0) !important; }
       /* Hero: less space above logo on mobile */
       .hero__content { padding-top: 1.5rem !important; padding-bottom: 2.5rem !important; }
@@ -146,6 +146,20 @@
       </div>
 
       <div class="events__posters reveal-stagger">
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_207300411dba40ca85ee7c093f5ae473~mv2.jpg"
+            alt="Dance Showcase — May 31st 2026"
+            loading="lazy"
+          >
+        </div>
+        <div class="events__poster-wrap">
+          <img
+            src="https://static.wixstatic.com/media/c0fda2_70a4aa753a124bbbbb3ca4bcf79aa3f3~mv2.png"
+            alt="Argentine Tango Event Flyer"
+            loading="lazy"
+          >
+        </div>
         <div class="events__poster-wrap">
           <img
             src="https://static.wixstatic.com/media/c0fda2_16868f4a32374f269ae76d5175946fe6~mv2.jpg/v1/fill/w_600,h_777,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Neon%20Nights%20Flyer%20April.jpg"
@@ -448,23 +462,47 @@
 
         <div class="instructor-card">
           <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg" alt="Gaetano" loading="lazy">
+            <img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg" alt="Ken" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Ken</h3>
+          <p class="instructor-card__specialty">Social Dance · Groovy Tuesdays &amp; Saturday Ballroom</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg" alt="Julius" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Julius</h3>
+          <p class="instructor-card__specialty">International Standard</p>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-card__photo">
+            <img src="https://static.wixstatic.com/media/c0fda2_8f56dc24770440ce939ad01c48e5ba90~mv2.jpeg" alt="Tommy" loading="lazy">
+          </div>
+          <h3 class="instructor-card__name">Tommy</h3>
+          <p class="instructor-card__specialty">Hip Hop · Jazz · Wedding &amp; Social Choreography</p>
+        </div>
+
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
           </div>
           <h3 class="instructor-card__name">Gaetano</h3>
           <p class="instructor-card__specialty">International Standard</p>
         </div>
 
-        <div class="instructor-card">
-          <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg" alt="Emanuela" loading="lazy">
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
           </div>
           <h3 class="instructor-card__name">Emanuela</h3>
           <p class="instructor-card__specialty">International Standard</p>
         </div>
 
-        <div class="instructor-card">
-          <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_8f56dc24770440ce939ad01c48e5ba90~mv2.jpeg" alt="Stacie" loading="lazy">
+        <div class="instructor-card instructor-card--text">
+          <div class="instructor-card__photo instructor-card__photo--placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
           </div>
           <h3 class="instructor-card__name">Stacie</h3>
           <p class="instructor-card__specialty">Social Dance</p>
@@ -472,7 +510,7 @@
 
         <div class="instructor-card">
           <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_b3da54e72bd641e9bb387c7b8c3533cd~mv2.jpeg" alt="Tim Michaels" loading="lazy">
+            <img src="https://static.wixstatic.com/media/c0fda2_2b1607a662fc405cb5bffaa027356188~mv2.jpg" alt="Tim Michaels" loading="lazy">
           </div>
           <h3 class="instructor-card__name">Tim Michaels</h3>
           <p class="instructor-card__specialty">Wedding &amp; Social Dance</p>
@@ -483,12 +521,12 @@
             <img src="https://static.wixstatic.com/media/c0fda2_b3832475cc1343f4b8b47b799089b9ae~mv2.jpg" alt="Austin" loading="lazy">
           </div>
           <h3 class="instructor-card__name">Austin</h3>
-          <p class="instructor-card__specialty">West Coast Swing</p>
+          <p class="instructor-card__specialty">West Coast Swing · Groovy Tuesdays</p>
         </div>
 
         <div class="instructor-card">
           <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_2b1607a662fc405cb5bffaa027356188~mv2.jpg" alt="Andy & Virginia" loading="lazy">
+            <img src="https://static.wixstatic.com/media/c0fda2_e3f18b63ad144ca4a3356fc5c6ba1d71~mv2.jpeg" alt="Andy & Virginia" loading="lazy">
           </div>
           <h3 class="instructor-card__name">Andy &amp; Virginia</h3>
           <p class="instructor-card__specialty">Social Dance · Sunday Hosts</p>
@@ -496,34 +534,10 @@
 
         <div class="instructor-card">
           <div class="instructor-card__photo">
-            <img src="https://static.wixstatic.com/media/c0fda2_e3f18b63ad144ca4a3356fc5c6ba1d71~mv2.jpeg" alt="Barry & Mei" loading="lazy">
+            <img src="https://static.wixstatic.com/media/c0fda2_b3da54e72bd641e9bb387c7b8c3533cd~mv2.jpeg" alt="Barry & Mei" loading="lazy">
           </div>
           <h3 class="instructor-card__name">Barry &amp; Mei</h3>
           <p class="instructor-card__specialty">Social Dance · Friday Hosts</p>
-        </div>
-
-        <div class="instructor-card instructor-card--text">
-          <div class="instructor-card__photo instructor-card__photo--placeholder">
-            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
-          </div>
-          <h3 class="instructor-card__name">Ken</h3>
-          <p class="instructor-card__specialty">Social Dance · Groovy Tuesdays &amp; Saturday Ballroom</p>
-        </div>
-
-        <div class="instructor-card instructor-card--text">
-          <div class="instructor-card__photo instructor-card__photo--placeholder">
-            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
-          </div>
-          <h3 class="instructor-card__name">Tommy</h3>
-          <p class="instructor-card__specialty">Hip Hop · Jazz · Wedding &amp; Social Choreography</p>
-        </div>
-
-        <div class="instructor-card instructor-card--text">
-          <div class="instructor-card__photo instructor-card__photo--placeholder">
-            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30"/></svg>
-          </div>
-          <h3 class="instructor-card__name">Julius</h3>
-          <p class="instructor-card__specialty">International Standard</p>
         </div>
 
       </div>
