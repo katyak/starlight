@@ -36,27 +36,29 @@
   /* ── 2. Mobile Hamburger Menu ── */
   (function initMobileMenu() {
     var hamburger = document.getElementById('hamburger');
-    var navLinks = document.getElementById('navLinks');
-    if (!hamburger || !navLinks) return;
+    var overlay = document.getElementById('mobileNavOverlay');
+    if (!hamburger || !overlay) return;
 
     function openMenu() {
-      navLinks.classList.add('nav__links--open');
+      overlay.classList.add('mobile-nav-overlay--open');
+      overlay.setAttribute('aria-hidden', 'false');
       hamburger.classList.add('nav__hamburger--active');
       hamburger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      var firstLink = navLinks.querySelector('a');
+      var firstLink = overlay.querySelector('a');
       if (firstLink) firstLink.focus();
     }
 
     function closeMenu() {
-      navLinks.classList.remove('nav__links--open');
+      overlay.classList.remove('mobile-nav-overlay--open');
+      overlay.setAttribute('aria-hidden', 'true');
       hamburger.classList.remove('nav__hamburger--active');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
 
     hamburger.addEventListener('click', function () {
-      if (navLinks.classList.contains('nav__links--open')) {
+      if (overlay.classList.contains('mobile-nav-overlay--open')) {
         closeMenu();
         hamburger.focus();
       } else {
@@ -64,14 +66,14 @@
       }
     });
 
-    navLinks.querySelectorAll('a').forEach(function (link) {
+    overlay.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         closeMenu();
       });
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navLinks.classList.contains('nav__links--open')) {
+      if (e.key === 'Escape' && overlay.classList.contains('mobile-nav-overlay--open')) {
         closeMenu();
         hamburger.focus();
       }

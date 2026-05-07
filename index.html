@@ -21,8 +21,8 @@
       .nav__hamburger { display: flex !important; flex-direction: column !important; gap: 5px !important; padding: 8px !important; margin-left: auto !important; z-index: 1001 !important; background: none !important; border: none !important; cursor: pointer !important; }
       .nav__hamburger span { display: block !important; width: 24px !important; height: 2px !important; background: #ffffff !important; border-radius: 2px !important; }
       .nav__cta { display: none !important; }
-      .nav__links { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; background: rgba(13,13,26,0.98) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; transform: translateX(100%) !important; transition: transform 0.4s ease !important; z-index: 999 !important; overflow-y: auto !important; }
-      .nav__links--open { transform: translateX(0) !important; }
+      /* Hide desktop nav links on mobile — overlay handles it */
+      .nav__links { display: none !important; }
       /* Hero: less space above logo on mobile */
       .hero__content { padding-top: 1.5rem !important; padding-bottom: 2.5rem !important; }
     }
@@ -51,6 +51,18 @@
       </button>
     </div>
   </nav>
+
+  <!-- Mobile nav overlay — lives at body level to avoid nav stacking context -->
+  <ul class="mobile-nav-overlay" id="mobileNavOverlay" role="list" aria-hidden="true">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#styles">Dance Styles</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#instructors">Teachers</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
   <!-- ══════════════════════════════════════════
        HERO

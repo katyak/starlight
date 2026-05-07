@@ -1268,40 +1268,48 @@ input, select, textarea { font: inherit; }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
 }
 
+/* Mobile nav overlay — at body level, no stacking context issues */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(13, 13, 26, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+.mobile-nav-overlay--open {
+  transform: translateX(0);
+}
+.mobile-nav-overlay a {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
 @media (max-width: 900px) {
-  /* Nav — remove backdrop-filter so the fixed menu overlay positions against the viewport, not the nav */
+  .mobile-nav-overlay { display: flex; }
+  /* Nav — no backdrop-filter so it doesn't create a containing block for fixed children */
   .nav, .nav--scrolled {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
-  .nav__links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(13, 13, 26, 0.98);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-8);
-    font-size: 1.5rem;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999;
-    margin: 0;
-    overflow-y: auto;
-  }
-  .nav__links--open { transform: translateX(0); }
-  .nav__links a {
-    font-size: 1.125rem;
-    letter-spacing: 0.12em;
-    color: var(--color-text);
-  }
-  .nav__links a::after { display: none; }
   .nav__cta { display: none; }
   .nav__hamburger { display: flex; }
 
