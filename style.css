@@ -1281,11 +1281,11 @@ input, select, textarea { font: inherit; }
   -webkit-backdrop-filter: blur(24px);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-8);
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 96px 0 40px;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
