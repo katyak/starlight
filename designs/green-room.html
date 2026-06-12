@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Green Room — fresh, inclusive, community-studio style.">
+<title>Starlite Ballroom — Green Room (Design 9 of 9)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fcfbf7; --white:#ffffff; --green:#1e4d3b; --leaf:#3a7d5c; --mint:#e4efe7;
+  --sand:#efe9db; --terra:#c96f4a; --ink:#1d2b25; --grey:#5d6b64; --line:#e3e0d6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:1.02rem;line-height:1.75}
+h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.02em}
+a{color:var(--green);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+section{padding:5.2rem 0}
+
+.eyebrow{display:inline-block;background:var(--mint);color:var(--green);font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:6px;font-family:'Sora',sans-serif}
+.sec-head{margin-bottom:2.6rem}
+.sec-title{font-size:clamp(1.9rem,4.4vw,2.8rem);margin-top:.8rem}
+.sec-title em{font-style:normal;color:var(--leaf)}
+
+/* logo on light bg */
+.logo-dark{filter:brightness(0) opacity(.88)}
+
+/* leaf decoration */
+.leaf{position:absolute;width:150px;opacity:.16;pointer-events:none;color:var(--green)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,251,247,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem;gap:1rem}
+.brand img{height:36px;width:auto}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--ink)}
+.nav-links a:hover{color:var(--leaf)}
+
+.btn{display:inline-block;font-family:'Sora',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:.95rem 2.2rem;background:var(--green);color:#fff;border-radius:6px;transition:all .2s}
+.btn:hover{background:var(--terra);transform:translateY(-2px)}
+.btn--terra{background:var(--terra)}
+.btn--terra:hover{background:var(--green)}
+.btn--line{background:none;color:var(--green);border:2px solid var(--green)}
+.btn--line:hover{background:var(--green);color:#fff;transform:none}
+
+/* hero — banner photo with overlay card */
+.hero{padding-top:4.2rem}
+.hero-banner{position:relative;height:min(78vh,660px);overflow:hidden;display:flex;align-items:flex-end}
+.hero-banner .bg{position:absolute;inset:0;background:url('https://static.wixstatic.com/media/c0fda2_00c65f10daf74309b9887e93395a4f8b~mv2.jpg/v1/fill/w_2240,h_1724,al_c,lg_1,q_90,usm_0.66_1.00_0.01/hero.jpg') center 28%/cover no-repeat}
+.hero-banner .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,43,37,.25),rgba(29,43,37,.65) 90%)}
+.hero-card{position:relative;z-index:2;max-width:1140px;margin:0 auto;width:100%;padding:0 1.5rem 3rem;color:#fff}
+.hero-card img.logo{width:min(300px,52vw);margin-bottom:1.3rem}
+.hero-card h1{font-size:clamp(2rem,5.4vw,3.6rem);line-height:1.08;max-width:14em}
+.hero-card p{margin:1.1rem 0 1.8rem;max-width:34em;color:#e8efe9}
+.hero-card .actions{display:flex;gap:.9rem;flex-wrap:wrap}
+
+/* welcome strip */
+.strip{background:var(--green);color:#fff;padding:1rem 1.5rem;text-align:center;font-family:'Sora',sans-serif;font-weight:600;font-size:.92rem}
+.strip em{font-style:normal;color:#ffd9a8}
+
+/* intro */
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;position:relative}
+.intro p{color:#3f4d46;margin-bottom:1.1rem}
+.values{display:grid;gap:.9rem}
+.value{background:var(--white);border:1px solid var(--line);border-left:6px solid var(--leaf);border-radius:8px;padding:1.1rem 1.4rem}
+.value b{font-family:'Sora',sans-serif;font-size:.95rem;display:block}
+.value span{font-size:.88rem;color:var(--grey)}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.4rem}
+.price{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:2rem 1.7rem;text-align:center;transition:all .22s;position:relative;overflow:hidden}
+.price:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(30,77,59,.12);border-color:var(--leaf)}
+.price.hot{background:var(--green);color:#fff;border-color:var(--green)}
+.price.hot .amt,.price.hot h3{color:#fff}
+.price.hot p{color:#cfe0d6}
+.price.hot .tag{position:absolute;top:1rem;right:-2.2rem;background:var(--terra);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.25rem 2.5rem;transform:rotate(38deg)}
+.price h3{font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:var(--grey);font-weight:600}
+.price .amt{font-family:'Sora',sans-serif;font-size:2.6rem;font-weight:800;color:var(--green);margin:.5rem 0}
+.price .amt small{font-size:1rem;font-weight:600}
+.price p{font-size:.88rem;color:var(--grey)}
+.price-note{margin-top:1.8rem;color:var(--grey);font-size:.9rem;text-align:center}
+
+/* events */
+.events-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:1.5rem;align-items:start}
+.events-cal,.poster{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px}
+.events-cal img,.poster img{width:100%;border-radius:6px}
+.poster-col{display:grid;gap:1.5rem}
+.events-note{margin-top:1.8rem;color:var(--grey);font-size:.92rem}
+.events-note b{color:var(--green)}
+
+/* videos */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.video-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--white)}
+.video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.video-card p{padding:.85rem 1.1rem;font-size:.88rem;font-weight:500}
+
+/* dances */
+.tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.tag{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:.5rem 1.2rem;font-size:.88rem;font-weight:500;transition:all .2s}
+.tag:hover{background:var(--green);border-color:var(--green);color:#fff}
+
+/* teachers */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1.4rem}
+.person{text-align:center}
+.person .ph{aspect-ratio:.92;border-radius:10px 10px 56px 10px;overflow:hidden;margin-bottom:.8rem;background:var(--mint);display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
+.person .ph img{width:100%;height:100%;object-fit:cover}
+.person .ph .mono{font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:800;color:var(--leaf)}
+.person h3{font-size:.98rem}
+.person p{font-size:.78rem;color:var(--grey)}
+
+/* visit */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.hours-row{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.hours-row b{font-weight:500;font-family:'Sora',sans-serif;font-size:.85rem}
+.hours-row span{color:var(--grey);text-align:right}
+.c-line{margin-bottom:1.2rem}
+.c-line h3{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:.15rem}
+.c-line p,.c-line a{font-size:1.05rem;font-weight:500;color:var(--ink)}
+.map iframe{width:100%;height:330px;border:0;border-radius:12px}
+
+footer.site{background:var(--green);color:#d7e4dc;padding:3.2rem 1.5rem;text-align:center}
+footer.site img{height:42px;width:auto;margin:0 auto 1rem}
+footer.site p{font-size:.9rem}
+
+.concept-banner{position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--terra);color:#fff;font-family:'Sora',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;font-weight:700}
+.concept-banner a{color:#ffe1c9;text-decoration:underline}
+
+@media(max-width:880px){
+  .intro-grid,.split,.events-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  section{padding:3.4rem 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><img class="logo-dark" src="../logo.png" alt="Starlite Ballroom"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#teachers">Teachers</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn" href="#visit" style="padding:.55rem 1.3rem;font-size:.72rem">Try Now</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-banner">
+    <div class="bg" role="img" aria-label="Dancers on the floor at Starlite Ballroom"></div>
+    <div class="tint"></div>
+    <div class="hero-card">
+      <img class="logo" src="../logo.png" alt="Starlite Ballroom">
+      <h1>Dance for every body, every level, every week.</h1>
+      <p>Starlite Ballroom is San Jose's inclusive, judgment-free dance home — 20 dances, drop-in classes from $20, parties every weekend, and a free first private lesson.</p>
+      <div class="actions">
+        <a class="btn btn--terra" href="#visit">Try Now — Free Lesson</a>
+        <a class="btn" style="background:rgba(255,255,255,.16);backdrop-filter:blur(4px)" href="#pricing">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">All levels · No partner needed · <em>Come as you are</em> — leave dancing.</div>
+
+<section id="about">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro">
+        <span class="eyebrow">Our Studio</span>
+        <h2 class="sec-title">A joyful, <em>non-judgmental</em> place to move</h2>
+        <p style="margin-top:1.2rem">Nestled in the heart of Silicon Valley, Starlite Ballroom is where world-class coaching meets a warm, welcoming community. Whether it's your very first step or your next competition, you'll find a home — and a floor — here.</p>
+        <p>Twenty dances. Ten teachers. Social parties every weekend. And a community that will cheer your first cha cha as loudly as your hundredth.</p>
+      </div>
+      <div class="values">
+        <div class="value"><b>Beginner-first</b><span>Every class welcomes total beginners — Saturday evenings are built for them.</span></div>
+        <div class="value"><b>No partner needed</b><span>We rotate partners in group classes, so come solo with confidence.</span></div>
+        <div class="value"><b>All ages &amp; bodies</b><span>Kids' classes on weekends, social dancers in their 70s on Friday nights.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--sand)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow" style="background:var(--white)">Simple Pricing</span>
+      <h2 class="sec-title">Drop in. <em>Dance.</em></h2>
+    </div>
+    <div class="price-grid">
+      <div class="price hot"><span class="tag">Start here</span><h3>First Private Lesson</h3><div class="amt">FREE</div><p>New students — one-on-one with a pro. No experience needed.</p></div>
+      <div class="price"><h3>Group Class</h3><div class="amt">$20</div><p>Weeknight Latin, ballroom, swing &amp; more. Drop in any time.</p></div>
+      <div class="price"><h3>Class + Party</h3><div class="amt">$15<small>–25</small></div><p>Lesson plus the social party after — Neon Nights $15, Tango + practica $25.</p></div>
+      <div class="price"><h3>Party Only</h3><div class="amt">$10<small>–12</small></div><p>Friday, Saturday &amp; Sunday social dances with DJ.</p></div>
+    </div>
+    <p class="price-note">Prices from the June 2026 schedule — see the <a href="#events">calendar</a> for class-by-class details.</p>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">What's On</span>
+      <h2 class="sec-title">June at <em>Starlite</em></h2>
+    </div>
+    <div class="events-grid">
+      <div class="events-cal">
+        <img src="https://static.wixstatic.com/media/c0fda2_e965f35502d34c8ea9d4c0ba53c646a5~mv2.jpg" alt="June 2026 class calendar — weekly classes, parties, and events at Starlite Ballroom" loading="lazy">
+      </div>
+      <div class="poster-col">
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_9e80b4cd1de5434d98d19732b8d7ad0c~mv2.jpg" alt="Neon Nights — country dance classes and party, Thursdays June 11th and 25th" loading="lazy"></div>
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_e664c183c7ff4408948948ab1262a2f8~mv2.jpeg" alt="Argentine Tango with Emrah Ös — every Monday, class and practica" loading="lazy"></div>
+      </div>
+    </div>
+    <p class="events-note"><b>Neon Nights</b> — Thursdays, June 11 &amp; 25 · <b>Argentine Tango</b> — every Monday · Social dancing every weekend</p>
+  </div>
+</section>
+
+<section id="videos" style="background:var(--mint)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow" style="background:var(--white)">The Floor, Live</span>
+      <h2 class="sec-title">Peek inside the <em>studio</em></h2>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/7GVmN9eXrTI" title="Saturday night social dancing at Starlite Ballroom" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <p>Saturday Night Social</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/8yx22bp002Y" title="Group class on the Starlite Ballroom floor" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <p>Group class on the floor</p>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/1kpC1H6d2y8" title="Dancing at Starlite Ballroom San Jose" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <p>Inside our San Jose ballroom</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dances">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">The Dances</span>
+      <h2 class="sec-title">20 ways to <em>find your groove</em></h2>
+    </div>
+    <div class="tags">
+      <span class="tag">Waltz</span><span class="tag">Tango</span><span class="tag">Foxtrot</span><span class="tag">Viennese Waltz</span>
+      <span class="tag">Quickstep</span><span class="tag">Cha Cha</span><span class="tag">Rumba</span><span class="tag">Samba</span>
+      <span class="tag">Jive</span><span class="tag">Paso Doble</span><span class="tag">Salsa</span><span class="tag">Mambo</span>
+      <span class="tag">Bolero</span><span class="tag">East Coast Swing</span><span class="tag">West Coast Swing</span><span class="tag">Hustle</span>
+      <span class="tag">Nightclub 2-Step</span><span class="tag">Merengue</span><span class="tag">Milonga</span><span class="tag">Hip Hop</span>
+    </div>
+  </div>
+</section>
+
+<section id="teachers" style="background:var(--sand)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow" style="background:var(--white)">Meet the Team</span>
+      <h2 class="sec-title">Your <em>teachers</em></h2>
+    </div>
+    <div class="people">
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg/v1/fill/w_690,h_936,al_c,lg_1,q_90,usm_0.66_1.00_0.01/ken.jpg" alt="Ken" loading="lazy"></div><h3>Ken</h3><p>Social Dance</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg/v1/fill/w_808,h_1040,al_c,lg_1,q_90,usm_0.66_1.00_0.01/julius.jpg" alt="Julius" loading="lazy"></div><h3>Julius</h3><p>Intl. Standard</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_8f56dc24770440ce939ad01c48e5ba90~mv2.jpeg/v1/fill/w_720,h_960,al_c,lg_1,q_90,usm_0.66_1.00_0.01/tommy.jpg" alt="Tommy" loading="lazy"></div><h3>Tommy</h3><p>Hip Hop · Weddings</p></div>
+      <div class="person"><div class="ph"><span class="mono">G</span></div><h3>Gaetano</h3><p>Intl. Standard</p></div>
+      <div class="person"><div class="ph"><span class="mono">E</span></div><h3>Emanuela</h3><p>Intl. Standard</p></div>
+      <div class="person"><div class="ph"><span class="mono">S</span></div><h3>Stacie</h3><p>Social Dance</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_2b1607a662fc405cb5bffaa027356188~mv2.jpg" alt="Tim Michaels" loading="lazy"></div><h3>Tim Michaels</h3><p>Wedding &amp; Social</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_b3832475cc1343f4b8b47b799089b9ae~mv2.jpg/v1/fill/w_972,h_1414,al_c,lg_1,q_90,usm_0.66_1.00_0.01/austin.jpg" alt="Austin" loading="lazy"></div><h3>Austin</h3><p>West Coast Swing</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_e3f18b63ad144ca4a3356fc5c6ba1d71~mv2.jpeg" alt="Andy & Virginia" loading="lazy"></div><h3>Andy &amp; Virginia</h3><p>Sunday Hosts</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_b3da54e72bd641e9bb387c7b8c3533cd~mv2.jpeg" alt="Barry & Mei" loading="lazy"></div><h3>Barry &amp; Mei</h3><p>Friday Hosts</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Plan Your Visit</span>
+      <h2 class="sec-title">Come find <em>your floor</em></h2>
+    </div>
+    <div class="split">
+      <div>
+        <div class="hours-row"><b>Monday – Thursday</b><span>1:00 PM – 10:00 PM</span></div>
+        <div class="hours-row"><b>Friday</b><span>1:00 PM – 1:00 AM</span></div>
+        <div class="hours-row"><b>Saturday</b><span>10 AM – 4 PM · 7 PM – Midnight</span></div>
+        <div class="hours-row"><b>Sunday</b><span>7:00 PM – 11:00 PM</span></div>
+        <div style="margin-top:1.8rem">
+          <div class="c-line"><h3>Address</h3><p>5178 Moorpark Ave, Suite 60, San Jose, CA 95129</p></div>
+          <div class="c-line"><h3>Phone</h3><a href="tel:4082527000">408-252-7000</a></div>
+          <div class="c-line"><h3>Email</h3><a href="mailto:thestarliteballroom@gmail.com">thestarliteballroom@gmail.com</a></div>
+        </div>
+        <a class="btn btn--terra" href="mailto:thestarliteballroom@gmail.com?subject=Free%20Trial%20Lesson">Try Now — Free Lesson</a>
+      </div>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4664609498474!2d-122.00574!3d37.32032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e3b05c0741%3A0x0!2s5178+Moorpark+Ave+Suite+60%2C+San+Jose%2C+CA+95129!5e0!3m2!1sen!2sus!4v1713400000000" loading="lazy" title="Starlite Ballroom location" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <img src="../logo.png" alt="Starlite Ballroom">
+  <p>© 2026 The Starlite Ballroom · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · 408-252-7000</p>
+</footer>
+
+<div class="concept-banner">Design concept 9 of 9 — “Green Room” · <a href="index.html">View all designs</a></div>
+
+</body>
+</html>
