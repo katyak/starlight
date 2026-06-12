@@ -323,7 +323,7 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
   });
   function loadResults(){
     var box=document.getElementById("pollResults");
-    fetch(STORE+"/?values=true&format=json&limit=500").then(function(r){return r.json()}).then(function(rows){
+    fetch(STORE+"/?values=true&format=json&limit=500&_="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(rows){
       var votes=[];
       (rows||[]).forEach(function(row){
         if(!row[0]||row[0].indexOf("vote-")!==0)return;
