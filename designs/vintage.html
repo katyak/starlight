@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Vintage Dance Hall.">
+<title>Starlite Ballroom — Vintage Dance Hall (Design 5 of 5)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@400;500&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f6eddc; --paper:#fdf8ec; --ink:#27332f; --teal:#206e66; --teal-dk:#174f4a;
+  --mustard:#d9a23c; --brick:#b4452f; --line:#dccfb4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Quattrocento',serif;font-size:1.05rem;line-height:1.75}
+h1,h2,h3{font-family:'Abril Fatface',serif;font-weight:400}
+a{color:var(--brick);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+section{padding:5.5rem 0}
+
+.eyebrow{display:block;text-align:center;font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;color:var(--brick)}
+.sec-title{text-align:center;font-size:clamp(2rem,4.8vw,3.1rem);margin:.5rem 0 1rem;color:var(--teal-dk)}
+.stars{text-align:center;color:var(--mustard);letter-spacing:.6em;margin-bottom:2.5rem;font-size:1.1rem}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--teal-dk);border-bottom:4px solid var(--mustard)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem;gap:1rem}
+.brand{font-family:'Abril Fatface',serif;font-size:1.3rem;color:var(--cream)}
+.brand .star{color:var(--mustard)}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream)}
+.nav-links a:hover{color:var(--mustard)}
+
+.btn{display:inline-block;font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;padding:.95rem 2.2rem;background:var(--brick);color:var(--cream);border-radius:3px;box-shadow:3px 3px 0 var(--ink);transition:all .15s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn--teal{background:var(--teal)}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 1.5rem 4rem;position:relative;
+  background:
+   radial-gradient(circle at 50% 0%, rgba(217,162,60,.25), transparent 60%),
+   repeating-linear-gradient(0deg, var(--cream) 0 6px, #f0e4cd 6px 7px)}
+.marquee-card{background:var(--paper);border:3px solid var(--teal-dk);border-radius:10px;padding:3.2rem clamp(1.5rem,5vw,4rem);max-width:760px;position:relative;box-shadow:8px 8px 0 rgba(23,79,74,.25)}
+.marquee-card::before{content:"★ ★ ★ ★ ★";position:absolute;top:1.1rem;left:0;right:0;text-align:center;color:var(--mustard);letter-spacing:.7em;font-size:.85rem}
+.hero .presents{font-family:'Oswald',sans-serif;letter-spacing:.5em;text-transform:uppercase;font-size:.75rem;color:var(--teal);margin-top:1.6rem}
+.hero h1{font-size:clamp(3rem,9vw,5.5rem);line-height:1;color:var(--teal-dk);margin:.6rem 0}
+.hero h1 .accent{color:var(--brick)}
+.hero .since{display:inline-block;background:var(--mustard);color:var(--ink);font-family:'Oswald',sans-serif;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;padding:.35rem 1.2rem;border-radius:999px;margin:.8rem 0 1.2rem}
+.hero p.sub{max-width:32em;margin:0 auto 2rem;color:#4c5a52}
+.hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ticket strip */
+.ticket-strip{background:var(--teal-dk);color:var(--cream);padding:1.1rem 0;text-align:center;font-family:'Oswald',sans-serif;letter-spacing:.25em;text-transform:uppercase;font-size:.8rem;border-top:4px solid var(--mustard);border-bottom:4px solid var(--mustard)}
+.ticket-strip b{color:var(--mustard)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.about p{margin-bottom:1.1rem;color:#3e4b45}
+.badge-stack{display:grid;gap:1.2rem}
+.badge{background:var(--paper);border:2px dashed var(--teal);border-radius:8px;padding:1.4rem 1.8rem;display:flex;align-items:center;gap:1.4rem}
+.badge b{font-family:'Abril Fatface',serif;font-size:2.1rem;color:var(--brick);min-width:90px;text-align:center}
+.badge span{font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-dk)}
+
+/* programs */
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem}
+.prog{background:var(--paper);border:2px solid var(--teal-dk);border-radius:8px;padding:2rem;position:relative;transition:transform .2s}
+.prog:hover{transform:rotate(-.6deg) translateY(-3px)}
+.prog .pin{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--mustard);border:2px solid var(--ink);width:22px;height:22px;border-radius:50%}
+.prog h3{color:var(--brick);font-size:1.35rem;margin-bottom:.5rem;text-align:center}
+.prog p{font-size:.95rem;color:#3e4b45;text-align:center}
+
+/* dance bill */
+.bill{max-width:680px;margin:0 auto;background:var(--paper);border:3px double var(--teal-dk);padding:2.8rem clamp(1.2rem,4vw,3rem);text-align:center}
+.bill h3{font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:.4em;text-transform:uppercase;font-size:.85rem;color:var(--brick);margin:1.6rem 0 .7rem}
+.bill h3:first-child{margin-top:0}
+.bill p{font-family:'Abril Fatface',serif;font-size:1.25rem;color:var(--teal-dk);line-height:1.9}
+.bill p i{font-style:normal;color:var(--mustard);padding:0 .35rem}
+
+/* teachers */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1.6rem}
+.person{background:var(--paper);border:2px solid var(--teal-dk);border-radius:8px 8px 60px 60px;overflow:hidden;text-align:center;padding-bottom:1.3rem}
+.person .ph{aspect-ratio:1;background:#e6d8be;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;border-bottom:2px solid var(--teal-dk)}
+.person .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(28%)}
+.person .ph .mono{font-family:'Abril Fatface',serif;font-size:3rem;color:var(--teal)}
+.person h3{font-size:1.15rem;color:var(--teal-dk)}
+.person p{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brick);padding:0 .6rem}
+
+/* hours/contact */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.hours-card{background:var(--teal-dk);color:var(--cream);border-radius:8px;padding:2.4rem;border:3px solid var(--mustard)}
+.hours-card h3{color:var(--mustard);font-size:1.5rem;margin-bottom:1.2rem;text-align:center}
+.hours-row{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px dashed rgba(246,237,220,.3);font-size:.98rem}
+.hours-row:last-child{border:none}
+.hours-row b{font-family:'Oswald',sans-serif;font-weight:400;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem}
+.c-line{margin-bottom:1.3rem}
+.c-line h3{font-family:'Oswald',sans-serif;font-weight:500;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
+.c-line p,.c-line a{font-size:1.15rem;color:var(--ink)}
+.map iframe{width:100%;height:280px;border:0;border-radius:8px;border:2px solid var(--teal-dk);filter:sepia(35%)}
+
+footer{background:var(--teal-dk);color:var(--cream);padding:3.5rem 1.5rem;text-align:center;border-top:4px solid var(--mustard)}
+footer .brand{font-size:1.9rem}
+footer p{font-size:.9rem;margin-top:.8rem;color:#cfe0dc}
+
+.concept-banner{position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--brick);color:var(--cream);font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:.5rem 1rem}
+.concept-banner a{color:var(--mustard);text-decoration:underline}
+
+@media(max-width:860px){
+  .about-grid,.split{grid-template-columns:1fr}
+  .nav-links{display:none}
+  section{padding:3.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top">St<span class="star">★</span>rlite Ballroom</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#dances">Tonight's Bill</a></li>
+      <li><a href="#teachers">Teachers</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="marquee-card">
+    <p class="presents">San Jose proudly presents</p>
+    <h1>The St<span class="accent">★</span>rlite<br>Ballroom</h1>
+    <span class="since">Silicon Valley's Dance Hall</span>
+    <p class="sub">Step into a golden evening — waltz, swing, salsa and 17 more dances, taught nightly by world-class coaches. Everyone's welcome, and your first lesson is free.</p>
+    <div class="actions">
+      <a class="btn" href="#visit">Book a Free Lesson</a>
+      <a class="btn btn--teal" href="#dances">See Tonight's Bill</a>
+    </div>
+  </div>
+</header>
+
+<div class="ticket-strip">Admit One — <b>First lesson free</b> · Social dancing every Friday &amp; Saturday night · All ages, all levels</div>
+
+<section id="about">
+  <div class="container">
+    <span class="eyebrow">Our Story</span>
+    <h2 class="sec-title">An Old-Fashioned Welcome</h2>
+    <p class="stars">★ ★ ★</p>
+    <div class="about-grid">
+      <div class="about">
+        <p>Nestled in the heart of Silicon Valley, Starlite Ballroom is where world-class coaching meets a warm, welcoming community — the kind of place where the music is always playing and there's always room on the floor.</p>
+        <p>Whether you're stepping out for the very first time or training for your next competition, our award-winning instructors bring passion, precision, and playfulness to every lesson. Come as you are. Leave dancing.</p>
+      </div>
+      <div class="badge-stack">
+        <div class="badge"><b>20+</b><span>Dances on the program</span></div>
+        <div class="badge"><b>ALL</b><span>Levels &amp; ages welcome</span></div>
+        <div class="badge"><b>FREE</b><span>Your first lesson</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs" style="background:var(--paper);border-top:2px solid var(--line);border-bottom:2px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">What We Offer</span>
+    <h2 class="sec-title">On the Program</h2>
+    <p class="stars">★ ★ ★</p>
+    <div class="prog-grid">
+      <article class="prog"><span class="pin"></span><h3>Social Dancing</h3><p>Drop-in classes, practice parties, and dance nights in a warm, judgment-free hall.</p></article>
+      <article class="prog"><span class="pin"></span><h3>Private Lessons</h3><p>One-on-one coaching tailored to your goals and pace. First lesson free.</p></article>
+      <article class="prog"><span class="pin"></span><h3>Wedding Dance</h3><p>A first dance they'll talk about for years — choreographed to your song.</p></article>
+      <article class="prog"><span class="pin"></span><h3>Competitive</h3><p>Train with internationally ranked coaches and shine on the big stage.</p></article>
+      <article class="prog"><span class="pin"></span><h3>Kids &amp; Teens</h3><p>Weekend classes that build confidence, coordination, and joy.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="dances">
+  <div class="container">
+    <span class="eyebrow">The Dances</span>
+    <h2 class="sec-title">Tonight's Bill</h2>
+    <p class="stars">★ ★ ★</p>
+    <div class="bill">
+      <h3>International Standard</h3>
+      <p>Waltz <i>·</i> Tango <i>·</i> Foxtrot <i>·</i> Viennese Waltz <i>·</i> Quickstep</p>
+      <h3>Latin</h3>
+      <p>Cha Cha <i>·</i> Rumba <i>·</i> Samba <i>·</i> Jive <i>·</i> Paso Doble <i>·</i> Mambo <i>·</i> Bolero</p>
+      <h3>Swing &amp; Social</h3>
+      <p>East Coast Swing <i>·</i> West Coast Swing <i>·</i> Salsa <i>·</i> Hustle <i>·</i> Nightclub 2-Step <i>·</i> Merengue <i>·</i> Milonga</p>
+      <h3>And for the young at heart</h3>
+      <p>Hip Hop</p>
+    </div>
+  </div>
+</section>
+
+<section id="teachers" style="background:var(--paper);border-top:2px solid var(--line);border-bottom:2px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">Meet the Team</span>
+    <h2 class="sec-title">Your Hosts &amp; Teachers</h2>
+    <p class="stars">★ ★ ★</p>
+    <div class="people">
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg" alt="Ken" loading="lazy"></div><h3>Ken</h3><p>Social Dance · Groovy Tuesdays</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg" alt="Julius" loading="lazy"></div><h3>Julius</h3><p>International Standard</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_8f56dc24770440ce939ad01c48e5ba90~mv2.jpeg" alt="Tommy" loading="lazy"></div><h3>Tommy</h3><p>Hip Hop · Jazz · Weddings</p></div>
+      <div class="person"><div class="ph"><span class="mono">G</span></div><h3>Gaetano</h3><p>International Standard</p></div>
+      <div class="person"><div class="ph"><span class="mono">E</span></div><h3>Emanuela</h3><p>International Standard</p></div>
+      <div class="person"><div class="ph"><span class="mono">S</span></div><h3>Stacie</h3><p>Social Dance</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_2b1607a662fc405cb5bffaa027356188~mv2.jpg" alt="Tim Michaels" loading="lazy"></div><h3>Tim Michaels</h3><p>Wedding &amp; Social</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_b3832475cc1343f4b8b47b799089b9ae~mv2.jpg" alt="Austin" loading="lazy"></div><h3>Austin</h3><p>West Coast Swing</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_e3f18b63ad144ca4a3356fc5c6ba1d71~mv2.jpeg" alt="Andy & Virginia" loading="lazy"></div><h3>Andy &amp; Virginia</h3><p>Sunday Hosts</p></div>
+      <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_b3da54e72bd641e9bb387c7b8c3533cd~mv2.jpeg" alt="Barry & Mei" loading="lazy"></div><h3>Barry &amp; Mei</h3><p>Friday Hosts</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="container">
+    <span class="eyebrow">Plan Your Evening</span>
+    <h2 class="sec-title">Doors Open At...</h2>
+    <p class="stars">★ ★ ★</p>
+    <div class="split">
+      <div class="hours-card">
+        <h3>Studio Hours</h3>
+        <div class="hours-row"><b>Mon – Thu</b><span>1:00 PM – 10:00 PM</span></div>
+        <div class="hours-row"><b>Friday</b><span>1:00 PM – 1:00 AM</span></div>
+        <div class="hours-row"><b>Saturday</b><span>10 AM – 4 PM · 7 PM – Midnight</span></div>
+        <div class="hours-row"><b>Sunday</b><span>7:00 PM – 11:00 PM</span></div>
+      </div>
+      <div>
+        <div class="c-line"><h3>Address</h3><p>5178 Moorpark Ave, Suite 60, San Jose, CA 95129</p></div>
+        <div class="c-line"><h3>Phone</h3><a href="tel:4082527000">408-252-7000</a></div>
+        <div class="c-line"><h3>Email</h3><a href="mailto:thestarliteballroom@gmail.com">thestarliteballroom@gmail.com</a></div>
+        <p style="margin:1.4rem 0"><a class="btn" href="mailto:thestarliteballroom@gmail.com?subject=Free%20Trial%20Lesson">Reserve Your Free Lesson</a></p>
+        <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4664609498474!2d-122.00574!3d37.32032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e3b05c0741%3A0x0!2s5178+Moorpark+Ave+Suite+60%2C+San+Jose%2C+CA+95129!5e0!3m2!1sen!2sus!4v1713400000000" loading="lazy" title="Starlite Ballroom location" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="brand" style="font-family:'Abril Fatface',serif">St<span style="color:var(--mustard)">★</span>rlite Ballroom</p>
+  <p>© 2026 The Starlite Ballroom · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · 408-252-7000</p>
+</footer>
+
+<div class="concept-banner">Design concept 5 of 5 — “Vintage Dance Hall” · <a href="index.html">View all designs</a></div>
+
+</body>
+</html>

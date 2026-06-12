@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Starlite Ballroom website redesign — five design concepts to compare and evaluate.">
+<title>Starlite Ballroom — Redesign Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101013;--card:#1a1a1f;--line:#2c2c33;--text:#ececec;--muted:#9a9aa2;--accent:#e8c558}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;line-height:1.65}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+header{padding:4.5rem 0 2.5rem;text-align:center}
+header h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:700;letter-spacing:-.02em}
+header h1 span{color:var(--accent)}
+header p{color:var(--muted);max-width:46em;margin:1rem auto 0}
+header .links{margin-top:1.2rem;font-size:.9rem}
+header .links a{color:var(--accent);text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.8rem;padding-bottom:5rem}
+.concept{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+.concept:hover{transform:translateY(-5px);border-color:var(--accent)}
+.preview{position:relative;height:300px;overflow:hidden;background:#000}
+.preview iframe{width:1280px;height:1500px;transform:scale(0.25);transform-origin:top left;border:0;pointer-events:none}
+.preview::after{content:"";position:absolute;inset:0}
+.body{padding:1.5rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.body .no{font-family:'Space Grotesk',sans-serif;font-size:.75rem;letter-spacing:.25em;color:var(--muted);text-transform:uppercase}
+.body h2{font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:500}
+.body p{color:var(--muted);font-size:.93rem;flex:1}
+.swatches{display:flex;gap:.45rem}
+.sw{width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+.go{font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--accent);margin-top:.4rem}
+.concept:hover .go{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;color:var(--muted);font-size:.85rem}
+@media(max-width:720px){.preview iframe{width:1100px;transform:scale(0.32)}.preview{height:320px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Starlite Ballroom <span>×5</span> Redesign Concepts</h1>
+    <p>Five distinct visual directions for the Starlite Ballroom website — all built from the studio's real, up-to-date info (programs, 20 dance styles, teachers, hours, contact). Click any concept to explore the full page, then share your favorite.</p>
+    <p class="links"><a href="../index.html">Current redesign draft</a> &nbsp;·&nbsp; <a href="https://www.thestarliteballroom.com/" target="_blank" rel="noopener">Live original site</a></p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid">
+
+    <a class="concept" href="art-deco.html">
+      <div class="preview"><iframe src="art-deco.html" loading="lazy" tabindex="-1" title="Golden Age preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 01</span>
+        <h2>Golden Age</h2>
+        <p>Black-and-gold Art Deco glamour. Cinzel serifs, gilded frames, and a Gatsby-era ballroom mood. Closest in spirit to the current dark draft, but more luxurious and editorial.</p>
+        <div class="swatches"><span class="sw" style="background:#0b0b0d"></span><span class="sw" style="background:#c9a227"></span><span class="sw" style="background:#e8c558"></span><span class="sw" style="background:#f3ead7"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
+    <a class="concept" href="blush.html">
+      <div class="preview"><iframe src="blush.html" loading="lazy" tabindex="-1" title="Blush &amp; Ivory preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 02</span>
+        <h2>Blush &amp; Ivory</h2>
+        <p>Light, airy, and romantic — soft rose, ivory, and elegant serifs. Speaks directly to the wedding-dance and social crowd; feels like a boutique invitation.</p>
+        <div class="swatches"><span class="sw" style="background:#faf6f1"></span><span class="sw" style="background:#c4848c"></span><span class="sw" style="background:#b08d57"></span><span class="sw" style="background:#43332f"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
+    <a class="concept" href="latin-heat.html">
+      <div class="preview"><iframe src="latin-heat.html" loading="lazy" tabindex="-1" title="Latin Heat preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 03</span>
+        <h2>Latin Heat</h2>
+        <p>High-energy sunset gradients, huge display type, and a moving marquee. Bold and youthful — built to convert first-timers who want fun, not formality.</p>
+        <div class="swatches"><span class="sw" style="background:#16040f"></span><span class="sw" style="background:#ff4d00"></span><span class="sw" style="background:#ff2e63"></span><span class="sw" style="background:#ffb13d"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
+    <a class="concept" href="minimal.html">
+      <div class="preview"><iframe src="minimal.html" loading="lazy" tabindex="-1" title="Studio Modern preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 04</span>
+        <h2>Studio Modern</h2>
+        <p>Clean Swiss-style layout: white space, sharp grid, grayscale photography, one electric-blue accent. A contemporary Silicon Valley look that puts content first.</p>
+        <div class="swatches"><span class="sw" style="background:#fcfcfa"></span><span class="sw" style="background:#111114"></span><span class="sw" style="background:#2b3cf2"></span><span class="sw" style="background:#6b6b70"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
+    <a class="concept" href="vintage.html">
+      <div class="preview"><iframe src="vintage.html" loading="lazy" tabindex="-1" title="Vintage Dance Hall preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 05</span>
+        <h2>Vintage Dance Hall</h2>
+        <p>Warm mid-century nostalgia — cream, teal, and mustard with ticket-stub details and a marquee hero. Friendly, charming, and full of personality.</p>
+        <div class="swatches"><span class="sw" style="background:#f6eddc"></span><span class="sw" style="background:#206e66"></span><span class="sw" style="background:#d9a23c"></span><span class="sw" style="background:#b4452f"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  Starlite Ballroom redesign concepts · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · Content sourced from <a href="https://www.thestarliteballroom.com/" style="text-decoration:underline">thestarliteballroom.com</a>, June 2026
+</footer>
+
+</body>
+</html>
