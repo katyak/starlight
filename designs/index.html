@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Starlite Ballroom website redesign — the original design plus ten concepts to compare and evaluate.">
+<meta name="description" content="Starlite Ballroom website redesign — the original design plus eleven concepts to compare and evaluate.">
 <title>Starlite Ballroom — Redesign Concepts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,9 +42,9 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
 
 <header>
   <div class="container">
-    <h1>Starlite Ballroom <span>×10</span> Redesign Concepts</h1>
-    <p>The original redesign plus ten distinct visual directions for the Starlite Ballroom website — all built from the studio's real, up-to-date info (June 2026 calendar, current event posters, real studio videos, programs, 20 dance styles, teachers, hours, contact). Concepts 5–9 follow styles drawn from research into standout dance-studio websites, and concept 10 is built around the studio's own photography. Click any design to explore the full page, then share your favorite.</p>
-    <p class="links"><a href="https://www.thestarliteballroom.com/" target="_blank" rel="noopener">Live original site</a></p>
+    <h1>Starlite Ballroom <span>×11</span> Redesign Concepts</h1>
+    <p>The original redesign plus eleven distinct visual directions for the Starlite Ballroom website — all built from the studio's real, up-to-date info (June 2026 calendar, current event posters, real studio videos, programs, 20 dance styles, teachers, hours, contact). Concepts 5–9 follow styles drawn from research into standout dance-studio websites, and concepts 10–11 are built around the studio's own photography. Click any design to explore the full page, then share your favorite.</p>
+    <p class="links"><a href="https://www.thestarliteballroom.com/" target="_blank" rel="noopener">Live original site</a> &nbsp;·&nbsp; <a href="#poll">Vote for your favorites ↓</a></p>
   </div>
 </header>
 
@@ -172,8 +172,132 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
       </div>
     </a>
 
+    <a class="concept" href="sapphire.html">
+      <div class="preview"><iframe src="sapphire.html" loading="lazy" tabindex="-1" title="Sapphire preview"></iframe></div>
+      <div class="body">
+        <span class="no">Concept 11 · From the studio's photos</span>
+        <h2>Sapphire</h2>
+        <p>Split-screen luxe in royal blue and black — the enhanced high-resolution duo photo as a half-page hero, Marcellus serif headlines, and an overhead shoes shot in the story section.</p>
+        <div class="swatches"><span class="sw" style="background:#0c0d12"></span><span class="sw" style="background:#2746d8"></span><span class="sw" style="background:#4f6df5"></span><span class="sw" style="background:#eef1fb"></span></div>
+        <span class="go">View concept →</span>
+      </div>
+    </a>
+
   </div>
+
+  <!-- ═══════════ VISITOR POLL ═══════════ -->
+  <section id="poll">
+    <div class="poll-box">
+      <h2 class="poll-title">Rank your favorites</h2>
+      <p class="poll-sub">Drag the designs into your order of preference using the arrows — your #1 at the top — then enter your name and submit. Your ranking is sent by email.</p>
+      <label class="poll-name-label" for="voterName">Your name</label>
+      <input type="text" id="voterName" class="poll-name" placeholder="e.g. Kateryna" autocomplete="name" maxlength="60">
+      <ol class="poll-list" id="pollList"></ol>
+      <div class="poll-actions">
+        <button class="poll-btn" id="pollSubmit">Submit my ranking ✉</button>
+        <button class="poll-btn poll-btn--ghost" id="pollCopy">Copy to clipboard</button>
+      </div>
+      <p class="poll-status" id="pollStatus" aria-live="polite"></p>
+    </div>
+  </section>
 </main>
+
+<style>
+#poll{padding:1rem 0 5rem}
+.poll-box{max-width:680px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4rem clamp(1.2rem,4vw,2.6rem)}
+.poll-title{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;text-align:center}
+.poll-title::before{content:"★ ";color:var(--accent)}
+.poll-sub{color:var(--muted);font-size:.92rem;text-align:center;margin:.7rem 0 1.6rem}
+.poll-name-label{display:block;font-family:'Space Grotesk',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.poll-name{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:.8rem 1rem;margin-bottom:1.4rem}
+.poll-name:focus{outline:none;border-color:var(--accent)}
+.poll-list{list-style:none;display:grid;gap:.5rem;margin-bottom:1.6rem}
+.poll-item{display:flex;align-items:center;gap:.9rem;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.65rem .9rem;transition:border-color .2s}
+.poll-item:first-child{border-color:var(--accent)}
+.poll-rank{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);min-width:2em;text-align:center}
+.poll-label{flex:1;font-size:.95rem}
+.poll-label small{display:block;color:var(--muted);font-size:.75rem}
+.poll-move{display:flex;gap:.3rem}
+.poll-move button{background:var(--card);border:1px solid var(--line);border-radius:6px;color:var(--text);width:34px;height:30px;cursor:pointer;font-size:.85rem;transition:all .15s}
+.poll-move button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.poll-move button:disabled{opacity:.25;cursor:default}
+.poll-actions{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.poll-btn{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.9rem;background:var(--accent);color:#101013;border:none;border-radius:8px;padding:.85rem 1.8rem;cursor:pointer;transition:transform .15s}
+.poll-btn:hover{transform:translateY(-2px)}
+.poll-btn--ghost{background:none;border:1px solid var(--line);color:var(--text)}
+.poll-btn--ghost:hover{border-color:var(--accent);color:var(--accent)}
+.poll-status{text-align:center;color:var(--accent);font-size:.88rem;margin-top:1rem;min-height:1.2em}
+</style>
+
+<script>
+(function(){
+  var designs=[
+    {id:"original",name:"Current Design",note:"the original redesign"},
+    {id:"art-deco",name:"Golden Age",note:"black & gold Art Deco"},
+    {id:"blush",name:"Blush & Ivory",note:"light, romantic"},
+    {id:"latin-heat",name:"Latin Heat",note:"bold sunset gradients"},
+    {id:"vintage",name:"Vintage Dance Hall",note:"mid-century retro"},
+    {id:"spotlight",name:"Spotlight",note:"dark photo-forward"},
+    {id:"editorial",name:"Editorial",note:"minimalist photography"},
+    {id:"community",name:"Hearth",note:"warm community"},
+    {id:"academy",name:"Academy",note:"bright family-friendly"},
+    {id:"green-room",name:"Green Room",note:"fresh green, pricing-first"},
+    {id:"golden-hour",name:"Golden Hour",note:"cinematic amber"},
+    {id:"sapphire",name:"Sapphire",note:"royal blue split-screen"}
+  ];
+  var saved=null;
+  try{saved=JSON.parse(localStorage.getItem("starlite-poll-order"))}catch(e){}
+  if(saved&&saved.length===designs.length){
+    designs.sort(function(a,b){return saved.indexOf(a.id)-saved.indexOf(b.id)});
+  }
+  var list=document.getElementById("pollList");
+  function persist(){
+    try{localStorage.setItem("starlite-poll-order",JSON.stringify(designs.map(function(d){return d.id})))}catch(e){}
+  }
+  function render(){
+    list.innerHTML="";
+    designs.forEach(function(d,i){
+      var li=document.createElement("li");
+      li.className="poll-item";
+      li.innerHTML='<span class="poll-rank">'+(i+1)+'</span>'+
+        '<span class="poll-label">'+d.name+'<small>'+d.note+'</small></span>'+
+        '<span class="poll-move">'+
+        '<button type="button" aria-label="Move '+d.name+' up" '+(i===0?"disabled":"")+' data-i="'+i+'" data-dir="-1">▲</button>'+
+        '<button type="button" aria-label="Move '+d.name+' down" '+(i===designs.length-1?"disabled":"")+' data-i="'+i+'" data-dir="1">▼</button></span>';
+      list.appendChild(li);
+    });
+  }
+  list.addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b)return;
+    var i=+b.dataset.i, dir=+b.dataset.dir, j=i+dir;
+    if(j<0||j>=designs.length)return;
+    var t=designs[i]; designs[i]=designs[j]; designs[j]=t;
+    persist(); render();
+  });
+  function rankingText(){
+    var name=document.getElementById("voterName").value.trim()||"Anonymous";
+    var lines=["Starlite Ballroom design poll","Name: "+name,"Date: "+new Date().toISOString().slice(0,10),"","My ranking:"];
+    designs.forEach(function(d,i){lines.push((i+1)+". "+d.name)});
+    return lines.join("\n");
+  }
+  var status=document.getElementById("pollStatus");
+  document.getElementById("pollSubmit").addEventListener("click",function(){
+    var name=document.getElementById("voterName").value.trim();
+    if(!name){status.textContent="Please enter your name first.";return}
+    var body=encodeURIComponent(rankingText());
+    var subject=encodeURIComponent("Starlite design poll — ranking from "+name);
+    window.location.href="mailto:katerynak@gmail.com?subject="+subject+"&body="+body;
+    status.textContent="Opening your email app — just hit Send!";
+  });
+  document.getElementById("pollCopy").addEventListener("click",function(){
+    var t=rankingText();
+    function done(){status.textContent="Copied! Paste it in a message to Kateryna."}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done)}
+    else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);done()}
+  });
+  render();
+})();
+</script>
 
 <footer>
   Starlite Ballroom redesign concepts · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · Content sourced from <a href="https://www.thestarliteballroom.com/" style="text-decoration:underline">thestarliteballroom.com</a>, June 2026
