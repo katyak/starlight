@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Golden Age Art Deco.">
-<title>Starlite Ballroom — Golden Age (Design 1 of 5)</title>
+<title>Starlite Ballroom — Golden Age (Design 1 of 8)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -67,6 +67,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,11,13,.94)
 .stat b{display:block;font-family:'Cinzel',serif;font-size:2rem;color:var(--gold-bright)}
 .stat span{font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);font-family:'Cinzel',serif}
 
+/* events */
+.events-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:1.5rem;align-items:start}
+.events-cal{border:1px solid rgba(201,162,39,.5);padding:10px;background:var(--coal)}
+.events-cal img{width:100%}
+.poster-col{display:grid;gap:1.5rem}
+.poster{border:1px solid rgba(201,162,39,.5);padding:10px;background:var(--coal);transition:border-color .3s}
+.poster:hover{border-color:var(--gold-bright)}
+.poster img{width:100%}
+.events-note{text-align:center;margin-top:2.2rem;font-style:italic;color:var(--muted)}
+.events-note strong{color:var(--gold-bright)}
+
 /* programs */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
 .card{background:var(--coal);border:1px solid rgba(201,162,39,.3);padding:2.2rem;position:relative;transition:border-color .3s,transform .3s}
@@ -113,7 +124,7 @@ footer .fin{font-family:'Cinzel Decorative',serif;color:var(--gold);letter-spaci
 .concept-banner a{color:var(--black);text-decoration:underline}
 
 @media(max-width:840px){
-  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-grid,.contact-grid,.events-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   section{padding:3.5rem 0}
 }
@@ -126,6 +137,7 @@ footer .fin{font-family:'Cinzel Decorative',serif;color:var(--gold);letter-spaci
     <a class="nav-brand" href="#top">Starlite Ballroom</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#styles">Dances</a></li>
       <li><a href="#teachers">Teachers</a></li>
@@ -164,6 +176,24 @@ footer .fin{font-family:'Cinzel Decorative',serif;color:var(--gold);letter-spaci
         <div class="stat"><b>Free</b><span>Trial Lesson</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <span class="eyebrow">What's On</span>
+    <h2 class="sec-title">This Month at <em>Starlite</em></h2>
+    <div class="deco-line"><span>✦</span></div>
+    <div class="events-grid">
+      <div class="events-cal">
+        <img src="https://static.wixstatic.com/media/c0fda2_e965f35502d34c8ea9d4c0ba53c646a5~mv2.jpg" alt="June 2026 class calendar — weekly classes, parties, and events at Starlite Ballroom" loading="lazy">
+      </div>
+      <div class="poster-col">
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_9e80b4cd1de5434d98d19732b8d7ad0c~mv2.jpg" alt="Neon Nights — country dance classes and party, Thursdays June 11th and 25th" loading="lazy"></div>
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_e664c183c7ff4408948948ab1262a2f8~mv2.jpeg" alt="Argentine Tango with Emrah Ös — every Monday, class and practica" loading="lazy"></div>
+      </div>
+    </div>
+    <p class="events-note"><strong>Neon Nights</strong> — Thursdays, June 11th &amp; 25th · <strong>Argentine Tango</strong> — every Monday · Social dancing every weekend</p>
   </div>
 </section>
 
@@ -259,7 +289,7 @@ footer .fin{font-family:'Cinzel Decorative',serif;color:var(--gold);letter-spaci
   <p>© 2026 The Starlite Ballroom · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · 408-252-7000</p>
 </footer>
 
-<div class="concept-banner">Design concept 1 of 5 — “Golden Age” · <a href="index.html">View all designs</a></div>
+<div class="concept-banner">Design concept 1 of 8 — “Golden Age” · <a href="index.html">View all designs</a></div>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Latin Heat.">
-<title>Starlite Ballroom — Latin Heat (Design 3 of 5)</title>
+<title>Starlite Ballroom — Latin Heat (Design 3 of 8)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -58,6 +58,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(22,4,15,.92);
 .marquee span{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.18em;color:#fff;animation:slide 22s linear infinite}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* events */
+.events-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:1.4rem;align-items:start}
+.events-cal,.poster{background:var(--plum);border:1px solid rgba(255,179,61,.35);border-radius:18px;padding:12px;transition:border-color .3s}
+.events-cal:hover,.poster:hover{border-color:var(--pink)}
+.events-cal img,.poster img{width:100%;border-radius:10px}
+.poster-col{display:grid;gap:1.4rem}
+.events-note{text-align:center;margin-top:2rem;color:#e8b9a3}
+.events-note strong{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+
 /* about */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}
 .about p{margin-bottom:1.1rem;color:#f3d9c8}
@@ -109,7 +118,7 @@ footer .brand{font-size:2rem;display:block;margin-bottom:.6rem}
 .concept-banner a{color:#fff;text-decoration:underline}
 
 @media(max-width:860px){
-  .about-grid,.split{grid-template-columns:1fr}
+  .about-grid,.split,.events-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .hero .logo{display:none}
   section{padding:3.5rem 0}
@@ -120,9 +129,10 @@ footer .brand{font-size:2rem;display:block;margin-bottom:.6rem}
 
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#top">STARLITE <b>BALLROOM</b></a>
+    <a class="brand" href="#top" style="display:flex;align-items:center;gap:.6rem"><img src="../logo.png" alt="Starlite Ballroom" style="height:38px;width:auto"></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#dances">Dances</a></li>
       <li><a href="#teachers">Teachers</a></li>
@@ -167,16 +177,33 @@ footer .brand{font-size:2rem;display:block;margin-bottom:.6rem}
   </div>
 </section>
 
-<section id="programs" style="background:var(--plum)">
+<section id="events" style="background:var(--plum)">
+  <div class="container">
+    <span class="eyebrow">What's On</span>
+    <h2 class="sec-title">JUNE IS <span class="hot">LOADED</span></h2>
+    <div class="events-grid">
+      <div class="events-cal" style="background:var(--night)">
+        <img src="https://static.wixstatic.com/media/c0fda2_e965f35502d34c8ea9d4c0ba53c646a5~mv2.jpg" alt="June 2026 class calendar — weekly classes, parties, and events at Starlite Ballroom" loading="lazy">
+      </div>
+      <div class="poster-col">
+        <div class="poster" style="background:var(--night)"><img src="https://static.wixstatic.com/media/c0fda2_9e80b4cd1de5434d98d19732b8d7ad0c~mv2.jpg" alt="Neon Nights — country dance classes and party, Thursdays June 11th and 25th" loading="lazy"></div>
+        <div class="poster" style="background:var(--night)"><img src="https://static.wixstatic.com/media/c0fda2_e664c183c7ff4408948948ab1262a2f8~mv2.jpeg" alt="Argentine Tango with Emrah Ös — every Monday, class and practica" loading="lazy"></div>
+      </div>
+    </div>
+    <p class="events-note"><strong>NEON NIGHTS</strong> — Thursdays, June 11 &amp; 25 · <strong>ARGENTINE TANGO</strong> — every Monday · Party every weekend</p>
+  </div>
+</section>
+
+<section id="programs">
   <div class="container">
     <span class="eyebrow">What We Offer</span>
     <h2 class="sec-title">PICK YOUR <span class="hot">VIBE</span></h2>
     <div class="prog-grid">
-      <article class="prog" style="background:var(--night)"><h3>Social Dancing</h3><p>Drop-in classes, practice nights, and parties. Friday and Saturday nights are legendary.</p></article>
-      <article class="prog" style="background:var(--night)"><h3>Private Lessons</h3><p>One-on-one coaching tailored to you. Fastest way to level up — first lesson free.</p></article>
-      <article class="prog" style="background:var(--night)"><h3>Wedding Dance</h3><p>Choreography built around your song and your story. Bring the house down.</p></article>
-      <article class="prog" style="background:var(--night)"><h3>Competitive</h3><p>Train with internationally ranked coaches. Technique, artistry, fire.</p></article>
-      <article class="prog" style="background:var(--night)"><h3>Kids &amp; Teens</h3><p>Confidence and coordination for the next generation, every weekend.</p></article>
+      <article class="prog"><h3>Social Dancing</h3><p>Drop-in classes, practice nights, and parties. Friday and Saturday nights are legendary.</p></article>
+      <article class="prog"><h3>Private Lessons</h3><p>One-on-one coaching tailored to you. Fastest way to level up — first lesson free.</p></article>
+      <article class="prog"><h3>Wedding Dance</h3><p>Choreography built around your song and your story. Bring the house down.</p></article>
+      <article class="prog"><h3>Competitive</h3><p>Train with internationally ranked coaches. Technique, artistry, fire.</p></article>
+      <article class="prog"><h3>Kids &amp; Teens</h3><p>Confidence and coordination for the next generation, every weekend.</p></article>
     </div>
   </div>
 </section>
@@ -257,7 +284,7 @@ footer .brand{font-size:2rem;display:block;margin-bottom:.6rem}
   <p>© 2026 The Starlite Ballroom · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · 408-252-7000</p>
 </footer>
 
-<div class="concept-banner">Design concept 3 of 5 — “Latin Heat” · <a href="index.html">View all designs</a></div>
+<div class="concept-banner">Design concept 3 of 8 — “Latin Heat” · <a href="index.html">View all designs</a></div>
 
 </body>
 </html>

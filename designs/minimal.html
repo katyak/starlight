@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Studio Modern.">
-<title>Starlite Ballroom — Studio Modern (Design 4 of 5)</title>
+<title>Starlite Ballroom — Studio Modern (Design 4 of 8)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -46,6 +46,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(252,252,250,.
 .hero .meta p{max-width:30em;color:var(--grey)}
 .hero .meta .fact{font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--ink)}
 .hero .actions{margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap}
+
+/* logo on light bg — white artwork inverted to ink */
+.logo-dark{filter:brightness(0)}
+
+/* events */
+.events-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:1.5rem;align-items:start}
+.events-cal,.poster{border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .2s}
+.events-cal:hover,.poster:hover{border-color:var(--blue)}
+.events-cal img,.poster img{width:100%}
+.poster-col{display:grid;gap:1.5rem}
+.events-note{margin-top:1.8rem;color:var(--grey);font-size:.92rem}
+.events-note b{color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:500}
 
 /* about */
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
@@ -97,7 +109,7 @@ footer p{color:var(--grey);font-size:.88rem}
 .concept-banner a{color:#fff;text-decoration:underline}
 
 @media(max-width:860px){
-  .cols,.grid-2{grid-template-columns:1fr}
+  .cols,.grid-2,.events-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .prog-row{grid-template-columns:40px 1fr;gap:.5rem 1rem}
   .prog-row p{grid-column:2}
@@ -111,9 +123,10 @@ footer p{color:var(--grey);font-size:.88rem}
 
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#top">STARLITE<i>*</i>BALLROOM</a>
+    <a class="brand" href="#top" style="display:flex;align-items:center"><img class="logo-dark" src="../logo.png" alt="Starlite Ballroom" style="height:34px;width:auto"></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#dances">Dances</a></li>
       <li><a href="#teachers">Teachers</a></li>
@@ -159,9 +172,25 @@ footer p{color:var(--grey);font-size:.88rem}
   </div>
 </section>
 
+<section id="events">
+  <div class="container">
+    <div class="sec-head"><span class="idx">02</span><h2>This month</h2></div>
+    <div class="events-grid">
+      <div class="events-cal">
+        <img src="https://static.wixstatic.com/media/c0fda2_e965f35502d34c8ea9d4c0ba53c646a5~mv2.jpg" alt="June 2026 class calendar — weekly classes, parties, and events at Starlite Ballroom" loading="lazy">
+      </div>
+      <div class="poster-col">
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_9e80b4cd1de5434d98d19732b8d7ad0c~mv2.jpg" alt="Neon Nights — country dance classes and party, Thursdays June 11th and 25th" loading="lazy"></div>
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_e664c183c7ff4408948948ab1262a2f8~mv2.jpeg" alt="Argentine Tango with Emrah Ös — every Monday, class and practica" loading="lazy"></div>
+      </div>
+    </div>
+    <p class="events-note"><b>Neon Nights</b> — Thursdays, June 11 &amp; 25 · <b>Argentine Tango</b> — every Monday · Social dancing every weekend.</p>
+  </div>
+</section>
+
 <section id="programs">
   <div class="container">
-    <div class="sec-head"><span class="idx">02</span><h2>Programs</h2></div>
+    <div class="sec-head"><span class="idx">03</span><h2>Programs</h2></div>
     <div class="prog-row"><span class="no">P–01</span><h3>Private Lessons</h3><p>One-on-one instruction tailored to your goals, schedule, and style. The fastest way to progress — first lesson free.</p><span class="tag">Most popular</span></div>
     <div class="prog-row"><span class="no">P–02</span><h3>Social Dancing</h3><p>Drop-in classes, practice nights, and social dance events in a warm, judgment-free space.</p><span class="tag">Weekly</span></div>
     <div class="prog-row"><span class="no">P–03</span><h3>Wedding Dance</h3><p>Choreography crafted around your song and your story. Make your first dance unforgettable, stress-free.</p><span class="tag">Couples</span></div>
@@ -172,7 +201,7 @@ footer p{color:var(--grey);font-size:.88rem}
 
 <section id="dances">
   <div class="container">
-    <div class="sec-head"><span class="idx">03</span><h2>Twenty dances. One floor.</h2></div>
+    <div class="sec-head"><span class="idx">04</span><h2>Twenty dances. One floor.</h2></div>
     <div class="tags">
       <span class="tag-d">Waltz</span><span class="tag-d">Tango</span><span class="tag-d">Foxtrot</span>
       <span class="tag-d">Viennese Waltz</span><span class="tag-d">Quickstep</span><span class="tag-d">Cha Cha</span>
@@ -188,7 +217,7 @@ footer p{color:var(--grey);font-size:.88rem}
 
 <section id="teachers">
   <div class="container">
-    <div class="sec-head"><span class="idx">04</span><h2>The team</h2></div>
+    <div class="sec-head"><span class="idx">05</span><h2>The team</h2></div>
     <div class="people">
       <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_a3a9334d688e42999726c727daec9242~mv2.jpg" alt="Ken" loading="lazy"></div><h3>Ken</h3><p>Social Dance · Groovy Tuesdays</p></div>
       <div class="person"><div class="ph"><img src="https://static.wixstatic.com/media/c0fda2_14dd52d7ab1845459c0918f0e722d50f~mv2.jpg" alt="Julius" loading="lazy"></div><h3>Julius</h3><p>International Standard</p></div>
@@ -206,7 +235,7 @@ footer p{color:var(--grey);font-size:.88rem}
 
 <section id="visit">
   <div class="container">
-    <div class="sec-head"><span class="idx">05</span><h2>Hours &amp; visit</h2></div>
+    <div class="sec-head"><span class="idx">06</span><h2>Hours &amp; visit</h2></div>
     <div class="grid-2">
       <div>
         <div class="hours-row"><b>Monday – Thursday</b><span>1:00 PM – 10:00 PM</span></div>
@@ -232,7 +261,7 @@ footer p{color:var(--grey);font-size:.88rem}
   </div>
 </footer>
 
-<div class="concept-banner">Design concept 4 of 5 — “Studio Modern” · <a href="index.html">View all designs</a></div>
+<div class="concept-banner">Design concept 4 of 8 — “Studio Modern” · <a href="index.html">View all designs</a></div>
 
 </body>
 </html>

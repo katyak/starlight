@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Starlite Ballroom — San Jose's premier ballroom dance studio. Design concept: Blush & Ivory.">
-<title>Starlite Ballroom — Blush &amp; Ivory (Design 2 of 5)</title>
+<title>Starlite Ballroom — Blush &amp; Ivory (Design 2 of 8)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -50,6 +50,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,246,241,.
 .hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2.4vw,1.45rem);color:var(--soft);margin:1.4rem 0 .6rem}
 .hero .loc{font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;color:var(--sand)}
 .hero .actions{margin-top:2.6rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* logo on light bg — white artwork inverted to ink */
+.logo-dark{filter:brightness(0) opacity(.88)}
+
+/* events */
+.events-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:1.6rem;align-items:start}
+.events-cal,.poster{background:var(--paper);border:1px solid var(--line);padding:12px;box-shadow:0 10px 30px rgba(67,51,47,.07)}
+.events-cal img,.poster img{width:100%}
+.poster-col{display:grid;gap:1.6rem}
+.events-note{text-align:center;margin-top:2.2rem;font-style:italic;font-family:'Playfair Display',serif;color:var(--soft);font-size:1.1rem}
+.events-note strong{color:var(--rose-deep);font-style:normal}
 
 /* about */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
@@ -104,7 +115,7 @@ footer p{color:var(--soft);font-size:.9rem;margin-top:.8rem}
 .concept-banner a{color:#e9b8be;text-decoration:underline}
 
 @media(max-width:860px){
-  .about-grid,.split{grid-template-columns:1fr}
+  .about-grid,.split,.events-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .prog-row{grid-template-columns:50px 1fr;gap:.6rem 1.2rem}
   .prog-row p{grid-column:2}
@@ -121,6 +132,7 @@ footer p{color:var(--soft);font-size:.9rem;margin-top:.8rem}
     <a class="brand" href="#top">St<span class="star">✶</span>rlite Ballroom</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#dances">Dances</a></li>
       <li><a href="#teachers">Teachers</a></li>
@@ -131,7 +143,8 @@ footer p{color:var(--soft);font-size:.9rem;margin-top:.8rem}
 
 <header class="hero" id="top">
   <div class="hero-content">
-    <h1 class="wordmark">St<span class="star">✶</span>rlite<br>Ballroom</h1>
+    <img class="logo-dark" src="../logo.png" alt="Starlite Ballroom" style="width:min(380px,64vw);margin:0 auto 1.6rem">
+    <h1 class="wordmark" style="font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.3em;text-transform:uppercase">Ballroom Dance Studio</h1>
     <p class="sub">Where every dancer finds their rhythm — from first steps to first dances.</p>
     <p class="loc">San Jose · California</p>
     <div class="actions">
@@ -161,6 +174,24 @@ footer p{color:var(--soft);font-size:.9rem;margin-top:.8rem}
         <cite>Martha Graham</cite>
       </blockquote>
     </div>
+  </div>
+</section>
+
+<section id="events" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">What's On</span>
+    <h2 class="sec-title">This month at <em>Starlite</em></h2>
+    <p class="flourish">· · ·</p>
+    <div class="events-grid">
+      <div class="events-cal">
+        <img src="https://static.wixstatic.com/media/c0fda2_e965f35502d34c8ea9d4c0ba53c646a5~mv2.jpg" alt="June 2026 class calendar — weekly classes, parties, and events at Starlite Ballroom" loading="lazy">
+      </div>
+      <div class="poster-col">
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_9e80b4cd1de5434d98d19732b8d7ad0c~mv2.jpg" alt="Neon Nights — country dance classes and party, Thursdays June 11th and 25th" loading="lazy"></div>
+        <div class="poster"><img src="https://static.wixstatic.com/media/c0fda2_e664c183c7ff4408948948ab1262a2f8~mv2.jpeg" alt="Argentine Tango with Emrah Ös — every Monday, class and practica" loading="lazy"></div>
+      </div>
+    </div>
+    <p class="events-note"><strong>Neon Nights</strong> — Thursdays, June 11th &amp; 25th · <strong>Argentine Tango</strong> — every Monday</p>
   </div>
 </section>
 
@@ -256,7 +287,7 @@ footer p{color:var(--soft);font-size:.9rem;margin-top:.8rem}
   <p>© 2026 The Starlite Ballroom · 5178 Moorpark Ave, Suite 60, San Jose, CA 95129 · 408-252-7000</p>
 </footer>
 
-<div class="concept-banner">Design concept 2 of 5 — “Blush &amp; Ivory” · <a href="index.html">View all designs</a></div>
+<div class="concept-banner">Design concept 2 of 8 — “Blush &amp; Ivory” · <a href="index.html">View all designs</a></div>
 
 </body>
 </html>
