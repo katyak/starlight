@@ -180,15 +180,17 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
   <section id="poll">
     <div class="poll-box">
       <h2 class="poll-title">Rank your favorites</h2>
-      <p class="poll-sub">Drag the designs into your order of preference using the arrows — your #1 at the top — then enter your name and submit. Your ranking is sent by email.</p>
+      <p class="poll-sub">Order the designs by preference using the arrows — your #1 at the top — then enter your name and submit. Your ranking is saved instantly; you can submit again to update it.</p>
       <label class="poll-name-label" for="voterName">Your name</label>
       <input type="text" id="voterName" class="poll-name" placeholder="e.g. Kateryna" autocomplete="name" maxlength="60">
       <ol class="poll-list" id="pollList"></ol>
       <div class="poll-actions">
-        <button class="poll-btn" id="pollSubmit">Submit my ranking ✉</button>
+        <button class="poll-btn" id="pollSubmit">Submit my ranking</button>
+        <button class="poll-btn poll-btn--ghost" id="pollShowResults">View live results</button>
         <button class="poll-btn poll-btn--ghost" id="pollCopy">Copy to clipboard</button>
       </div>
       <p class="poll-status" id="pollStatus" aria-live="polite"></p>
+      <div id="pollResults" style="display:none"></div>
     </div>
   </section>
 </main>
@@ -218,6 +220,14 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
 .poll-btn--ghost{background:none;border:1px solid var(--line);color:var(--text)}
 .poll-btn--ghost:hover{border-color:var(--accent);color:var(--accent)}
 .poll-status{text-align:center;color:var(--accent);font-size:.88rem;margin-top:1rem;min-height:1.2em}
+#pollResults{margin-top:1.6rem;border-top:1px solid var(--line);padding-top:1.4rem}
+.pr-title{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:500;text-align:center;margin-bottom:1rem}
+.pr-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.pr-table th{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line)}
+.pr-table td{padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+.pr-table td:nth-child(3),.pr-table td:nth-child(4),.pr-table th:nth-child(3),.pr-table th:nth-child(4){text-align:right}
+.pr-top td{color:var(--accent);font-weight:500}
+.pr-note{color:var(--muted);font-size:.82rem;margin-top:.9rem;text-align:center}
 </style>
 
 <script>
@@ -270,15 +280,62 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
     designs.forEach(function(d,i){lines.push((i+1)+". "+d.name)});
     return lines.join("\n");
   }
+  var STORE="https://kvdb.io/A6qXN4Tnmgg4rBCg531cYz";
+  var NAME_BY_ID={};
+  designs.forEach(function(d){NAME_BY_ID[d.id]=d.name});
   var status=document.getElementById("pollStatus");
-  document.getElementById("pollSubmit").addEventListener("click",function(){
+  var btn=document.getElementById("pollSubmit");
+  btn.addEventListener("click",function(){
     var name=document.getElementById("voterName").value.trim();
     if(!name){status.textContent="Please enter your name first.";return}
-    var body=encodeURIComponent(rankingText());
-    var subject=encodeURIComponent("Starlite design poll — ranking from "+name);
-    window.location.href="mailto:katerynak@gmail.com?subject="+subject+"&body="+body;
-    status.textContent="Opening your email app — just hit Send!";
+    btn.disabled=true; status.textContent="Saving your ranking…";
+    var slug=name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40)||"anonymous";
+    var payload={name:name,order:designs.map(function(d){return d.id}),ts:new Date().toISOString()};
+    fetch(STORE+"/vote-"+slug,{method:"PUT",body:JSON.stringify(payload)})
+    .then(function(r){if(!r.ok)throw new Error("save failed");
+      status.textContent="Thank you, "+name+" — your ranking has been saved! 🎉";
+      try{localStorage.setItem("starlite-poll-voted",name)}catch(e){}
+      btn.disabled=false;
+      if(document.getElementById("pollResults").style.display!=="none"){loadResults()}
+    }).catch(function(){
+      btn.disabled=false;
+      status.textContent="Couldn't save automatically — opening your email app instead.";
+      var body=encodeURIComponent(rankingText());
+      var subject=encodeURIComponent("Starlite design poll — ranking from "+name);
+      window.location.href="mailto:katerynak@gmail.com?subject="+subject+"&body="+body;
+    });
   });
+  function loadResults(){
+    var box=document.getElementById("pollResults");
+    box.style.display="block";
+    box.innerHTML='<p class="pr-note">Loading results…</p>';
+    fetch(STORE+"/?values=true&format=json&limit=500").then(function(r){return r.json()}).then(function(rows){
+      var votes=[];
+      (rows||[]).forEach(function(row){
+        if(!row[0]||row[0].indexOf("vote-")!==0)return;
+        try{var v=JSON.parse(row[1]);if(v&&v.order&&v.order.length)votes.push(v)}catch(e){}
+      });
+      if(!votes.length){box.innerHTML='<p class="pr-note">No votes yet — be the first!</p>';return}
+      var N=designs.length, pts={}, firsts={};
+      votes.forEach(function(v){
+        v.order.forEach(function(id,i){
+          if(!(id in NAME_BY_ID))return;
+          pts[id]=(pts[id]||0)+Math.max(N-i,1);
+          if(i===0)firsts[id]=(firsts[id]||0)+1;
+        });
+      });
+      var standings=Object.keys(pts).map(function(id){return{id:id,pts:pts[id],firsts:firsts[id]||0}})
+        .sort(function(a,b){return b.pts-a.pts||b.firsts-a.firsts});
+      var html='<h3 class="pr-title">Live results — '+votes.length+' vote'+(votes.length>1?'s':'')+'</h3><table class="pr-table"><tr><th>#</th><th>Design</th><th>Points</th><th>#1 picks</th></tr>';
+      standings.forEach(function(s,i){
+        html+='<tr'+(i===0?' class="pr-top"':'')+'><td>'+(i+1)+'</td><td>'+NAME_BY_ID[s.id]+'</td><td>'+s.pts+'</td><td>'+(s.firsts||"—")+'</td></tr>';
+      });
+      html+='</table><p class="pr-note">Scoring: a #1 ranking earns '+N+' points, #2 earns '+(N-1)+', and so on. Voted: '+
+        votes.map(function(v){return v.name}).sort().join(", ")+'</p>';
+      box.innerHTML=html;
+    }).catch(function(){box.innerHTML='<p class="pr-note">Couldn\'t load results right now — try again in a moment.</p>'});
+  }
+  document.getElementById("pollShowResults").addEventListener("click",loadResults);
   document.getElementById("pollCopy").addEventListener("click",function(){
     var t=rankingText();
     function done(){status.textContent="Copied! Paste it in a message to Kateryna."}
@@ -286,6 +343,11 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;
     else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);done()}
   });
   render();
+  try{
+    var prev=localStorage.getItem("starlite-poll-voted");
+    if(prev){status.textContent="You already voted as “"+prev+"” — submit again any time to update your ranking.";
+      document.getElementById("voterName").value=prev;}
+  }catch(e){}
 })();
 </script>
 
