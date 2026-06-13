@@ -425,6 +425,80 @@
     }
     .td-best { background: var(--green-light) !important; color: var(--green) !important; font-weight: 600; }
 
+    /* ── DISMISS BUTTON ─────────────────────────── */
+    .card__dismiss {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      z-index: 10;
+      background: rgba(28,28,30,0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      line-height: 1;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .card__dismiss:hover {
+      background: rgba(180,40,40,0.85);
+      transform: scale(1.1);
+    }
+    .card__dismiss[aria-label="Restore"] {
+      background: rgba(46,125,90,0.85);
+    }
+
+    /* Hidden card → collapses to a slim restore bar */
+    .card.is-hidden {
+      overflow: visible;
+      box-shadow: none;
+      border: 1px solid var(--border);
+      background: white;
+    }
+    .card.is-hidden > *:not(.card__restore-bar) {
+      display: none;
+    }
+    .card__restore-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      gap: 0.75rem;
+    }
+    .card.is-hidden .card__restore-bar {
+      display: flex;
+    }
+    .card__restore-bar span {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+    .card__restore-btn {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent);
+      border-radius: 50px;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .card__restore-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
     /* ── FOOTER ──────────────────────────────────── */
     .site-footer {
       text-align: center;
@@ -496,6 +570,11 @@
                alt="313 Lakeview Way" loading="lazy">
           <span class="card__oh-badge">Open 11 AM – 1 PM</span>
           <span class="card__neighborhood-badge">Emerald Hills</span>
+          <button class="card__dismiss" onclick="hideCard('lakeview')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>313 Lakeview Way — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('lakeview')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 11:00 AM – 1:00 PM</p>
@@ -546,6 +625,11 @@
                alt="685 Upland Rd" loading="lazy">
           <span class="card__oh-badge">Open 12 PM – 5 PM</span>
           <span class="card__neighborhood-badge">Redwood City</span>
+          <button class="card__dismiss" onclick="hideCard('upland')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>685 Upland Rd — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('upland')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 12:00 PM – 5:00 PM</p>
@@ -594,6 +678,11 @@
                alt="927 Wilmington Way" loading="lazy">
           <span class="card__oh-badge">Open 1:30 PM – 4 PM</span>
           <span class="card__neighborhood-badge">Emerald Hills</span>
+          <button class="card__dismiss" onclick="hideCard('wilmington')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>927 Wilmington Way — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('wilmington')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 1:30 PM – 4:00 PM</p>
@@ -643,6 +732,11 @@
                alt="416 Quartz St" loading="lazy">
           <span class="card__oh-badge">Open 2 PM – 4 PM</span>
           <span class="card__neighborhood-badge">Farm Hill</span>
+          <button class="card__dismiss" onclick="hideCard('quartz')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>416 Quartz St — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('quartz')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 2:00 PM – 4:00 PM</p>
@@ -691,6 +785,11 @@
                alt="3860 Autumn Dr" loading="lazy">
           <span class="card__oh-badge">Open 2 PM – 4 PM</span>
           <span class="card__neighborhood-badge">Redwood City</span>
+          <button class="card__dismiss" onclick="hideCard('autumn')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>3860 Autumn Dr — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('autumn')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 2:00 PM – 4:00 PM</p>
@@ -741,6 +840,11 @@
           </div>
           <span class="card__oh-badge">Open 2 PM – 5 PM</span>
           <span class="card__neighborhood-badge">Redwood City</span>
+          <button class="card__dismiss" onclick="hideCard('kentucky')" title="Hide this property">✕</button>
+        </div>
+        <div class="card__restore-bar">
+          <span>1969 Kentucky St — hidden</span>
+          <button class="card__restore-btn" onclick="showCard('kentucky')">Restore</button>
         </div>
         <div class="card__body">
           <p class="card__time">Open Today · 2:00 PM – 5:00 PM</p>
@@ -881,5 +985,13 @@
     <p>Data sourced from Redfin · Open house times current as of June 13, 2026 — confirm before visiting</p>
   </footer>
 
+  <script>
+    function hideCard(id) {
+      document.getElementById(id).classList.add('is-hidden');
+    }
+    function showCard(id) {
+      document.getElementById(id).classList.remove('is-hidden');
+    }
+  </script>
 </body>
 </html>
