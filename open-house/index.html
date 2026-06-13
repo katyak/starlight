@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Houses — Saturday, June 13, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f4;
+      --warm-white: #ffffff;
+      --ink: #1c1c1e;
+      --ink-light: #4a4a52;
+      --ink-muted: #8a8a96;
+      --accent: #c8773a;
+      --accent-light: #f5ede3;
+      --green: #2e7d5a;
+      --green-light: #e8f5ee;
+      --border: #e8e6e1;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ─────────────────────────────────── */
+    .site-header {
+      background: var(--ink);
+      color: white;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .site-header .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .site-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .site-header .subtitle {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+    }
+
+    /* ── SCHEDULE STRIP ──────────────────────────── */
+    .schedule-strip {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .schedule-strip__inner {
+      display: inline-flex;
+      gap: 0.75rem;
+      align-items: center;
+      min-width: 100%;
+    }
+    .schedule-strip__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-right: 0.25rem;
+      flex-shrink: 0;
+    }
+    .schedule-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.9rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .schedule-chip:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .schedule-chip__time {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    .schedule-chip__addr {
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.15rem;
+    }
+
+    /* ── MAIN GRID ───────────────────────────────── */
+    .main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 1.75rem;
+    }
+
+    /* ── PROPERTY CARD ───────────────────────────── */
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card__photo-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e8e4dc;
+    }
+    .card__photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card__photo-wrap img {
+      transform: scale(1.03);
+    }
+    .card__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ddd8cc 0%, #c8c0b0 100%);
+      color: rgba(255,255,255,0.7);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      gap: 0.5rem;
+    }
+
+    .card__oh-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--green);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.75rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .card__oh-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #7effc1;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .card__neighborhood-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(28,28,30,0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      border-radius: 50px;
+    }
+
+    .card__body {
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card__time {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.35rem;
+    }
+
+    .card__address {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .card__city {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .card__price {
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+
+    .card__ppsf {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .card__stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .card__stat {
+      padding: 0.65rem 0.5rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .card__stat:last-child { border-right: none; }
+    .card__stat-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+    }
+    .card__stat-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    .card__meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card__meta-item {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+    .card__meta-item strong {
+      color: var(--ink-light);
+      font-weight: 500;
+    }
+
+    .card__desc {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--ink-light);
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .card__tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 50px;
+      padding: 0.25rem 0.65rem;
+    }
+
+    .card__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+    }
+    .card__cta:hover { background: #333; }
+    .card__cta svg { width: 14px; height: 14px; }
+
+    /* ── COMPARISON TABLE ────────────────────────── */
+    .comparison {
+      margin-top: 4rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 0.82rem;
+    }
+    thead tr {
+      background: var(--ink);
+      color: white;
+    }
+    thead th {
+      padding: 1rem 1.1rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s ease;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--cream); }
+    tbody td {
+      padding: 0.85rem 1.1rem;
+      white-space: nowrap;
+      color: var(--ink-light);
+      vertical-align: middle;
+    }
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .td-price { font-weight: 600; color: var(--ink) !important; }
+    .td-oh {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.04em;
+    }
+    .td-best { background: var(--green-light) !important; color: var(--green) !important; font-weight: 600; }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .site-header { padding: 2rem 1.25rem; }
+      .card__stats { grid-template-columns: repeat(2, 1fr); }
+      .card__stat:nth-child(2) { border-right: none; }
+      .card__stat:nth-child(3) { border-top: 1px solid var(--border); }
+      .card__stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="label">House Hunting</p>
+    <h1>Open Houses<br><em style="font-style:italic;font-weight:300;">Saturday, June 13, 2026</em></h1>
+    <p class="subtitle">6 properties · Emerald Hills & Redwood City</p>
+  </header>
+
+  <!-- Timeline strip -->
+  <div class="schedule-strip">
+    <div class="schedule-strip__inner">
+      <span class="schedule-strip__label">Today's Schedule</span>
+      <a href="#lakeview" class="schedule-chip">
+        <span class="schedule-chip__time">11 AM – 1 PM</span>
+        <span class="schedule-chip__addr">313 Lakeview Way</span>
+      </a>
+      <a href="#upland" class="schedule-chip">
+        <span class="schedule-chip__time">12 PM – 5 PM</span>
+        <span class="schedule-chip__addr">685 Upland Rd</span>
+      </a>
+      <a href="#wilmington" class="schedule-chip">
+        <span class="schedule-chip__time">1:30 PM – 4 PM</span>
+        <span class="schedule-chip__addr">927 Wilmington Way</span>
+      </a>
+      <a href="#quartz" class="schedule-chip">
+        <span class="schedule-chip__time">2 PM – 4 PM</span>
+        <span class="schedule-chip__addr">416 Quartz St</span>
+      </a>
+      <a href="#autumn" class="schedule-chip">
+        <span class="schedule-chip__time">2 PM – 4 PM</span>
+        <span class="schedule-chip__addr">3860 Autumn Dr</span>
+      </a>
+      <a href="#kentucky" class="schedule-chip">
+        <span class="schedule-chip__time">2 PM – 5 PM</span>
+        <span class="schedule-chip__addr">1969 Kentucky St</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="main">
+    <p class="section-heading">Properties</p>
+
+    <div class="grid">
+
+      <!-- ── 1. 313 LAKEVIEW WAY ─────────────────── -->
+      <article class="card" id="lakeview">
+        <div class="card__photo-wrap">
+          <img src="https://ssl.cdn-redfin.com/photo/8/bigphoto/655/ML82046655_0.jpg"
+               alt="313 Lakeview Way" loading="lazy">
+          <span class="card__oh-badge">Open 11 AM – 1 PM</span>
+          <span class="card__neighborhood-badge">Emerald Hills</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 11:00 AM – 1:00 PM</p>
+          <h2 class="card__address">313 Lakeview Way</h2>
+          <p class="card__city">Emerald Hills, CA 94062</p>
+          <p class="card__price">$3,399,000</p>
+          <p class="card__ppsf">$1,112 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">4</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3.5</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3,055</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">—</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>1927</strong></span>
+            <span class="card__meta-item">Redfin listing</span>
+          </div>
+          <p class="card__desc">Main house + luxury two-story Casita ADU. Chef's kitchen with GE Café appliances and quartz countertops. Canyon & bay views, curated landscaping, custom walk-in closet. Space for RV or boat storage.</p>
+          <div class="card__tags">
+            <span class="card__tag">ADU Included</span>
+            <span class="card__tag">Bay Views</span>
+            <span class="card__tag">Canyon Views</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Emerald-Hills/313-Lakeview-Way-94062/home/828708" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ── 2. 685 UPLAND RD ────────────────────── -->
+      <article class="card" id="upland">
+        <div class="card__photo-wrap">
+          <img src="https://ssl.cdn-redfin.com/photo/8/bigphoto/770/ML82038770_1.jpg"
+               alt="685 Upland Rd" loading="lazy">
+          <span class="card__oh-badge">Open 12 PM – 5 PM</span>
+          <span class="card__neighborhood-badge">Redwood City</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 12:00 PM – 5:00 PM</p>
+          <h2 class="card__address">685 Upland Rd</h2>
+          <p class="card__city">Redwood City, CA 94062</p>
+          <p class="card__price">$4,498,000</p>
+          <p class="card__ppsf">$1,294 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">4</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">4.5</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3,474</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">10,222</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>New Construction</strong></span>
+          </div>
+          <p class="card__desc">Brand new construction in a prime Redwood City location. Gourmet kitchen with large island, stainless steel appliances, and high-end finishes. Open floor plan designed for entertaining and everyday living.</p>
+          <div class="card__tags">
+            <span class="card__tag">New Construction</span>
+            <span class="card__tag">10,222 Sq Ft Lot</span>
+            <span class="card__tag">Gourmet Kitchen</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Redwood-City/685-Upland-Rd-94062/home/202232013" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ── 3. 927 WILMINGTON WAY ───────────────── -->
+      <article class="card" id="wilmington">
+        <div class="card__photo-wrap">
+          <img src="https://ssl.cdn-redfin.com/photo/8/bigphoto/852/ML82050852_0.jpg"
+               alt="927 Wilmington Way" loading="lazy">
+          <span class="card__oh-badge">Open 1:30 PM – 4 PM</span>
+          <span class="card__neighborhood-badge">Emerald Hills</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 1:30 PM – 4:00 PM</p>
+          <h2 class="card__address">927 Wilmington Way</h2>
+          <p class="card__city">Emerald Hills, CA 94062</p>
+          <p class="card__price">$4,900,000</p>
+          <p class="card__ppsf">$1,094 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">5</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">4.5</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">4,480</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">12,197</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>1990</strong></span>
+            <span class="card__meta-item"><strong>3-Car</strong> Garage</span>
+          </div>
+          <p class="card__desc">Exceptional Emerald Hills home with light-filled interiors spanning three levels. Formal living and dining, chef's kitchen open to family room, five bedrooms including ground-floor primary suite.</p>
+          <div class="card__tags">
+            <span class="card__tag">3-Car Garage</span>
+            <span class="card__tag">3 Levels</span>
+            <span class="card__tag">0.28 Acres</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Emerald-Hills/927-Wilmington-Way-94062/home/1617550" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ── 4. 416 QUARTZ ST ────────────────────── -->
+      <article class="card" id="quartz">
+        <div class="card__photo-wrap">
+          <img src="https://ssl.cdn-redfin.com/photo/8/bigphoto/655/ML82050655_1.jpg"
+               alt="416 Quartz St" loading="lazy">
+          <span class="card__oh-badge">Open 2 PM – 4 PM</span>
+          <span class="card__neighborhood-badge">Farm Hill</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 2:00 PM – 4:00 PM</p>
+          <h2 class="card__address">416 Quartz St</h2>
+          <p class="card__city">Redwood City, CA 94062</p>
+          <p class="card__price">$3,988,000</p>
+          <p class="card__ppsf">$1,374 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">4</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3.5</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">2,901</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">10,000</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>1924</strong> (fully renovated)</span>
+          </div>
+          <p class="card__desc">Completely reimagined from the floor up. New structural framing, shear walls, roof, windows, electrical panels, HVAC, plumbing, and insulation throughout. Reconfigured and expanded floor plan.</p>
+          <div class="card__tags">
+            <span class="card__tag">Full Gut Renovation</span>
+            <span class="card__tag">New Everything</span>
+            <span class="card__tag">10,000 Sq Ft Lot</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Redwood-City/416-Quartz-St-94062/home/833135" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ── 5. 3860 AUTUMN DR ───────────────────── -->
+      <article class="card" id="autumn">
+        <div class="card__photo-wrap">
+          <img src="https://ssl.cdn-redfin.com/photo/8/bigphoto/070/ML82050070_1.jpg"
+               alt="3860 Autumn Dr" loading="lazy">
+          <span class="card__oh-badge">Open 2 PM – 4 PM</span>
+          <span class="card__neighborhood-badge">Redwood City</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 2:00 PM – 4:00 PM</p>
+          <h2 class="card__address">3860 Autumn Dr</h2>
+          <p class="card__city">Redwood City, CA 94061</p>
+          <p class="card__price">$2,698,000</p>
+          <p class="card__ppsf">$1,325 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">4</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">2,035</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">8,984</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>1959</strong> (renovated)</span>
+          </div>
+          <p class="card__desc">Beautifully renovated and filled with natural light. Expansive windows frame serene treetop and hillside views. Open-concept layout with seamless flow between living, dining, and kitchen spaces.</p>
+          <div class="card__tags">
+            <span class="card__tag">Renovated</span>
+            <span class="card__tag">Hillside Views</span>
+            <span class="card__tag">Natural Light</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Redwood-City/3860-Autumn-Dr-94061/home/1600479" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ── 6. 1969 KENTUCKY ST ────────────────── -->
+      <article class="card" id="kentucky">
+        <div class="card__photo-wrap">
+          <div class="card__photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span style="font-size:0.8rem;opacity:0.6">Photo on Redfin</span>
+          </div>
+          <span class="card__oh-badge">Open 2 PM – 5 PM</span>
+          <span class="card__neighborhood-badge">Redwood City</span>
+        </div>
+        <div class="card__body">
+          <p class="card__time">Open Today · 2:00 PM – 5:00 PM</p>
+          <h2 class="card__address">1969 Kentucky St</h2>
+          <p class="card__city">Redwood City, CA 94061</p>
+          <p class="card__price">$3,149,000</p>
+          <p class="card__ppsf">$1,086 / sq ft</p>
+          <div class="card__stats">
+            <div class="card__stat">
+              <span class="card__stat-val">5</span>
+              <span class="card__stat-label">Beds</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">3</span>
+              <span class="card__stat-label">Baths</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">2,897</span>
+              <span class="card__stat-label">Sq Ft</span>
+            </div>
+            <div class="card__stat">
+              <span class="card__stat-val">6,008</span>
+              <span class="card__stat-label">Lot Sq Ft</span>
+            </div>
+          </div>
+          <div class="card__meta">
+            <span class="card__meta-item">Built <strong>2016</strong></span>
+            <span class="card__meta-item">Detached office/gym</span>
+          </div>
+          <p class="card__desc">10-year-new open-concept home with 5 bedrooms and 3 full baths. Detached 120 sq ft accessory unit with A/C — perfect for private office or gym. Ground-floor bedroom ideal for guests.</p>
+          <div class="card__tags">
+            <span class="card__tag">Built 2016</span>
+            <span class="card__tag">5 Bedrooms</span>
+            <span class="card__tag">Detached Office</span>
+          </div>
+          <a class="card__cta" href="https://www.redfin.com/CA/Redwood-City/1969-Kentucky-St-94061/home/1535734" target="_blank">
+            View on Redfin
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ── COMPARISON TABLE ───────────────────────── -->
+    <div class="comparison">
+      <p class="section-heading">Side-by-Side Comparison</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Open House</th>
+              <th>Price</th>
+              <th>Beds</th>
+              <th>Baths</th>
+              <th>Sq Ft</th>
+              <th>Lot Sq Ft</th>
+              <th>$/Sq Ft</th>
+              <th>Year Built</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#lakeview" style="color:inherit;text-decoration:none;font-weight:500;">313 Lakeview Way</a><br><small style="color:#8a8a96;font-weight:400;">Emerald Hills</small></td>
+              <td class="td-oh">11 AM – 1 PM</td>
+              <td class="td-price">$3,399,000</td>
+              <td>4</td>
+              <td>3.5</td>
+              <td>3,055</td>
+              <td>—</td>
+              <td>$1,112</td>
+              <td>1927</td>
+            </tr>
+            <tr>
+              <td><a href="#upland" style="color:inherit;text-decoration:none;font-weight:500;">685 Upland Rd</a><br><small style="color:#8a8a96;font-weight:400;">Redwood City</small></td>
+              <td class="td-oh">12 PM – 5 PM</td>
+              <td class="td-price">$4,498,000</td>
+              <td>4</td>
+              <td>4.5</td>
+              <td>3,474</td>
+              <td>10,222</td>
+              <td>$1,294</td>
+              <td>New</td>
+            </tr>
+            <tr>
+              <td><a href="#wilmington" style="color:inherit;text-decoration:none;font-weight:500;">927 Wilmington Way</a><br><small style="color:#8a8a96;font-weight:400;">Emerald Hills</small></td>
+              <td class="td-oh">1:30 PM – 4 PM</td>
+              <td class="td-price">$4,900,000</td>
+              <td>5</td>
+              <td>4.5</td>
+              <td>4,480</td>
+              <td>12,197</td>
+              <td class="td-best">$1,094</td>
+              <td>1990</td>
+            </tr>
+            <tr>
+              <td><a href="#quartz" style="color:inherit;text-decoration:none;font-weight:500;">416 Quartz St</a><br><small style="color:#8a8a96;font-weight:400;">Farm Hill</small></td>
+              <td class="td-oh">2 PM – 4 PM</td>
+              <td class="td-price">$3,988,000</td>
+              <td>4</td>
+              <td>3.5</td>
+              <td>2,901</td>
+              <td>10,000</td>
+              <td>$1,374</td>
+              <td>1924 / reno</td>
+            </tr>
+            <tr>
+              <td><a href="#autumn" style="color:inherit;text-decoration:none;font-weight:500;">3860 Autumn Dr</a><br><small style="color:#8a8a96;font-weight:400;">Redwood City</small></td>
+              <td class="td-oh">2 PM – 4 PM</td>
+              <td class="td-price td-best">$2,698,000</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2,035</td>
+              <td>8,984</td>
+              <td>$1,325</td>
+              <td>1959 / reno</td>
+            </tr>
+            <tr>
+              <td><a href="#kentucky" style="color:inherit;text-decoration:none;font-weight:500;">1969 Kentucky St</a><br><small style="color:#8a8a96;font-weight:400;">Redwood City</small></td>
+              <td class="td-oh">2 PM – 5 PM</td>
+              <td class="td-price">$3,149,000</td>
+              <td>5</td>
+              <td>3</td>
+              <td>2,897</td>
+              <td>6,008</td>
+              <td class="td-best">$1,086</td>
+              <td>2016</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Data sourced from Redfin · Open house times current as of June 13, 2026 — confirm before visiting</p>
+  </footer>
+
+</body>
+</html>
